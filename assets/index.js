@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             data.music.forEach((val) => {
                 const sectionTitle = document.createElement("h2");
-                sectionTitle.textContent = val.language.name + " Songs";
+                sectionTitle.textContent = val.language + " Songs";
                 sectionTitle.classList.add("mt-4");
 
                 const list = document.createElement("ul");
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     const songLink = document.createElement("a");
                     songLink.textContent = song.title;
 
-                    songLink.href = `song.html?lang=${encodeURIComponent(val.language.abbr)}&id=${index}`;
+                    songLink.href = `song.html?lang=${encodeURIComponent(val.languageCode)}&id=${index}`;
 
                     listItem.appendChild(songLink);
                     list.appendChild(listItem);
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             const response = await fetch("/src/data/songs.json");
             const data = await response.json();
 
-            const category = data.music.find(l => l.language.abbr === languageParam);
+            const category = data.music.find(l => l.languageCode === languageParam);
 
             if (!category || !category.songs[idParam]) {
                 songTitleElement.textContent = "Song not found";

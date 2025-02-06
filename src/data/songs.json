@@ -1,10 +1,8 @@
 {
     "music": [
         {
-            "language": {
-                "name": "English",
-                "abbr": "en"
-            },
+            "language": "English",
+            "languageCode": "en",
             "songs": [
                 {
                     "title": "Pass By",
@@ -24,10 +22,8 @@
             ]
         },
         {
-            "language": {
-                "name": "French",
-                "abbr": "fr"
-            },
+            "language": "French",
+            "languageCode": "fr",
             "songs": [
                 {
                     "title": "Nous ne pouvons pas",

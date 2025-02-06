@@ -1,6 +1,8 @@
 :root {
     --accent-color: #8EA58C;
+    --accent-color-dark: #3D4F3B;
     --header-footer-text-color: #FFFFF0;
+    --page-heading-margin-top: 20px;
 }
 
 html {
@@ -14,7 +16,8 @@ body {
 .navbar,
 .nav-link,
 footer *,
-#view-songs {
+#view-songs,
+#submit {
     background-color: var(--accent-color) !important;
     color: var(--header-footer-text-color) !important;
 }
@@ -46,19 +49,30 @@ footer * {
     font-size: 1.1em;
 }
 
+.song-header a {
+    color: var(--accent-color);
+    text-decoration: none !important;
+}
 
 .song-header h2 {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: var(--page-heading-margin-top);
 }
 
 .song-header i {
     font-size: 1.5em;
 }
 
-.song-header a {
+.panel-title a {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+.panel-title i {
     color: var(--accent-color);
     text-decoration: none !important;
+    font-size: 0.7em;
+    padding-left: 0.5em;
 }
 
 .bi-dash {
@@ -84,15 +98,30 @@ footer * {
     display: block;
 }
 
-#view-songs {
+#view-songs,
+#submit {
     border: none;
     transition: opacity 0.2s ease-in-out;
 }
 
-#view-songs:hover {
+#view-songs:hover,
+#submit:hover {
     opacity: 80%;
 }
 
 span#song-submitted-by {
     align-items: end;
+}
+
+#panel-group>.panel:last-of-type {
+    padding-bottom: 10%;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: var(--accent-color-dark);
+}
+
+h2.page-title {
+    margin-top: var(--page-heading-margin-top);
 }

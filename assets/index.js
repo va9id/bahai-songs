@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var additionalMsg = document.getElementById("addtional-msg").value;
 
             var subject = encodeURIComponent(`Song Request: ${songTitle} (${language})`);
-            var body = encodeURIComponent(`From: ${name}\n\n${additionalMsg}\n\nLyrics:\n\n${songLyrics}`);
+            var body = encodeURIComponent(`From: ${name}\n${additionalMsg}\nLyrics:\n\n${songLyrics}`);
 
             var mailtoLink = "mailto:testemail@gmail.com?subject=" + subject + "&body=" + body;
             window.location.href = mailtoLink;
@@ -75,10 +75,49 @@ document.addEventListener("DOMContentLoaded", async function () {
             const response = await fetch(songsData);
             const data = await response.json();
 
-            data.music.forEach((val) => {
-                const sectionTitle = document.createElement("h2");
-                sectionTitle.textContent = val.language + " Songs";
-                sectionTitle.classList.add("mt-4");
+            const panelGroup = document.createElement("div");
+            //panelGroup.classList.add("panel-group");
+            panelGroup.id = "panel-group";
+
+            data.music.forEach((val, index) => {
+
+                const panel = document.createElement("div");
+                panel.classList.add("panel", "panel-default");
+
+
+                const panelHeading = document.createElement("div");
+                panelHeading.classList.add("panel-heading");
+
+                const panelTitle = document.createElement("h2");
+
+                panelTitle.classList.add("panel-title", "mt-4");
+
+                const panelAnchor = document.createElement("a");
+                panelAnchor.setAttribute("data-bs-toggle", "collapse");
+                panelAnchor.setAttribute("href", `#${val.languageCode}-section`);
+                panelAnchor.classList.add("songs-by-language");
+
+                const panelAnchorArrow = document.createElement("i")
+                panelAnchorArrow.classList.add("bi");
+                if (index === 0) {
+                    panelAnchorArrow.classList.add("bi-chevron-up");
+                } else {
+                    panelAnchorArrow.classList.add("bi-chevron-down");
+                }
+
+
+                const panelText = document.createTextNode(`${val.language} Songs`);
+
+                panelAnchor.appendChild(panelAnchorArrow);
+                panelTitle.appendChild(panelText);
+                panelTitle.appendChild(panelAnchor);
+                panelHeading.appendChild(panelTitle);
+                panel.appendChild(panelHeading);
+
+                const collapsableSection = document.createElement("div");
+                collapsableSection.id = `${val.languageCode}-section`;
+                collapsableSection.classList.add("panel-collapse", "collapse");
+                if (index === 0) collapsableSection.classList.add("show");
 
                 const list = document.createElement("ul");
                 list.classList.add("list-group", "pb-1", "list-group-flush");
@@ -96,9 +135,33 @@ document.addEventListener("DOMContentLoaded", async function () {
                     list.appendChild(listItem);
                 });
 
-                songsContainer.appendChild(sectionTitle);
-                songsContainer.appendChild(list);
+                collapsableSection.appendChild(list);
+                panel.appendChild(collapsableSection);
+                panelGroup.appendChild(panel);
+
+                if (panelGroup) {
+                    panelGroup.addEventListener("show.bs.collapse", (event) => {
+                        toggleIcon(event.target, true);
+                    });
+                    panelGroup.addEventListener("hide.bs.collapse", (event) => {
+                        toggleIcon(event.target, false);
+                    });
+
+                    function toggleIcon(collapsedElement, isExpanding) {
+                        const panelAnchor = document.querySelector(`a[href="#${collapsedElement.id}"]`);
+
+                        if (panelAnchor) {
+                            const icon = panelAnchor.querySelector("i");
+
+                            if (icon) {
+                                icon.classList.toggle("bi-chevron-down", !isExpanding);
+                                icon.classList.toggle("bi-chevron-up", isExpanding);
+                            }
+                        }
+                    }
+                }
             });
+            songsContainer.append(panelGroup);
         } catch (error) {
             console.error("Error loading song list:", error);
         }

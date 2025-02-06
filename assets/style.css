@@ -1,9 +1,22 @@
+:root {
+    --accent-color: #8EA58C;
+    --header-footer-text-color: #FFFFF0;
+}
+
 html {
     height: 100%;
 }
 
 body {
     height: 100%;
+}
+
+.navbar,
+.nav-link,
+footer *,
+#view-songs {
+    background-color: var(--accent-color) !important;
+    color: var(--header-footer-text-color) !important;
 }
 
 .content {
@@ -25,23 +38,32 @@ body {
     font-weight: bold;
 }
 
-#footer {
-    background-color: rgba(0, 0, 0, 0.05);
+footer * {
     font-size: 0.9em;
 }
 
-.bi-github {
-    width: 19px;
-    height: 19px;
+.bi.bi-github {
+    font-size: 1.1em;
 }
 
-.page-title {
+
+.song-header h2 {
+    display: inline-block;
     margin-top: 20px;
 }
 
-.req {
-    color: red;
-    font-style: italic;
+.song-header i {
+    font-size: 1.5em;
+}
+
+.song-header a {
+    color: var(--accent-color);
+    text-decoration: none !important;
+}
+
+.bi-dash {
+    color: var(--accent-color);
+    font-size: 0.5em;
 }
 
 #optional {
@@ -60,6 +82,15 @@ body {
 
     text-align: justify;
     display: block;
+}
+
+#view-songs {
+    border: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#view-songs:hover {
+    opacity: 80%;
 }
 
 span#song-submitted-by {

@@ -1,0 +1,45 @@
+{
+    "music": [
+        {
+            "language": {
+                "name": "English",
+                "abbr": "en"
+            },
+            "songs": [
+                {
+                    "title": "Pass By",
+                    "lyrics": "Pass by whatever exists in this world and find me.\\n\\nI am the Sun of Perception and the Ocean of Science.\\n\\nI revive the withered ones and quicken the dead. I am that Light which illumines the path of Insight.\\n\\nI am the Falcon of the Hand of the Almighty; I bear healing in My wings and teach the knowledge of soaring to the Heaven of Truth.",
+                    "submitted-by": "bahaisongs.ca"
+                },
+                {
+                    "title": "Remember my Days",
+                    "lyrics": "Remember my Days during thy days, and My distress and banishment in this remote prison.\\n\\nAnd be thou so steadfast in My love that thy heart shall not waver, even if the swords of the enemies rain blows upon thee and all the heavens and the earth arise against thee",
+                    "submitted-by": "bahaisongs.ca"
+                },
+                {
+                    "title": "Unite and Bind",
+                    "lyrics": "Unite and bind together the hearts, join in accord all the souls.\\n\\nOh Lord! Make these faces radiant through the light of Thy oneness.",
+                    "submitted-by": "bahaisongs.ca"
+                }
+            ]
+        },
+        {
+            "language": {
+                "name": "French",
+                "abbr": "fr"
+            },
+            "songs": [
+                {
+                    "title": "Nous ne pouvons pas",
+                    "lyrics": "Nous ne pouvons pas séparer le cœur humain de l'environnement qui nous entoure, en disant que quand l'un deux sera transformé, tout ira mieux.\\n\\nL'homme fait partie intégrante de la structure organique du monde. Sa vie intérieure façonne l'environnement et elle est elle-même profondément influencée par celui-ci.",
+                    "submitted-by": "bahaisongs.ca"
+                },
+                {
+                    "title": "Vous devez",
+                    "lyrics": "Je désire pour vous la distinction\\nLes Baha'is doivent se distinguer du reste de l'humanité\\nJe désire pour vous la distinction\\nCe n'est  pas une distinction ordinaire que je désire\\n\\nNi scientifique, ni commericale, ni industrielle que je désire (x2)\\n\\nJe désire pour vous la distinction spirituelle a savoir\\nVous devez être éminents et distingués par les mœrs dans l'amour de Dieu\\n\\nVous devez, vous devez, vous devez, vous devez, vous devez (x3)\\n\\nVous devez, vous devez (distingué de tout autre)\\nVous devez, vous devez (par l'amour de l'humanité)\\nVous devez, vous devez (par l'unité et l'accord)\\nVous devez, vous devez (par l'amour et la justice)",
+                    "submitted-by": "bahaisongs.ca"
+                }
+            ]
+        }
+    ]
+}

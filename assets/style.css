@@ -1,0 +1,67 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.content {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+    margin-top: 56px;
+}
+
+
+#logo {
+    width: 50%;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+#footer {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 0.9em;
+}
+
+.bi-github {
+    width: 19px;
+    height: 19px;
+}
+
+.page-title {
+    margin-top: 20px;
+}
+
+.req {
+    color: red;
+    font-style: italic;
+}
+
+#optional {
+    font-size: x-small;
+}
+
+#contact-body {
+    max-height: fit-content;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+#song-lyrics {
+
+    text-align: justify;
+    display: block;
+}
+
+span#song-submitted-by {
+    align-items: end;
+}

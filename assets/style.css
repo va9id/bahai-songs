@@ -54,6 +54,10 @@ footer * {
     font-size: 1.2em;
 }
 
+#legal {
+    text-decoration: none;
+}
+
 /*end footer*/
 
 /*song*/
@@ -117,6 +121,19 @@ span#song-submitted-by {
 
 /*end contact*/
 
+/*legal*/
+#legal-container {
+    text-align: justify;
+    display: block;
+}
+
+#legal-container a {
+    color: var(--accent-color-dark);
+    font-weight: bold;
+
+}
+
+/*end legal*/
 /*buttons*/
 #view-songs,
 #submit {

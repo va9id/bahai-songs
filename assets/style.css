@@ -30,9 +30,7 @@ footer * {
     margin-top: 56px;
 }
 
-#home-description {
-    text-align: justify;
-}
+
 
 #logo {
     width: 50%;
@@ -80,9 +78,11 @@ footer {
     font-size: 1.5em;
 }
 
+
 #song-lyrics {
+    justify-content: center;
+    align-items: center;
     text-align: justify;
-    display: block;
 }
 
 span#song-submitted-by {
@@ -162,6 +162,11 @@ span#song-submitted-by {
 /*end buttons*/
 
 /*other*/
+h1 {
+    color: var(--accent-color-dark);
+    margin-top: var(--page-heading-margin-top);
+}
+
 h2.page-title {
     margin-top: var(--page-heading-margin-top);
 }

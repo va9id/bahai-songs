@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var language = document.getElementById("form-language").value;
             var songTitle = document.getElementById("form-song-title").value;
             var songLyrics = document.getElementById("form-song-lyrics").value;
-            var additionalMsg = document.getElementById("form-addtional-msg").value;
+            var additionalMsg = document.getElementById("form-additional-msg").value;
 
             var subject = encodeURIComponent(`Song Request: ${songTitle} (${language})`);
             var body = encodeURIComponent(`From: ${name}\n${additionalMsg}\nLyrics:\n\n${songLyrics}`);

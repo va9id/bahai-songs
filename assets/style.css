@@ -111,7 +111,7 @@ span#song-submitted-by {
 
 /*end songs*/
 
-/*contact*/
+/*forms*/
 #optional {
     font-size: x-small;
 }
@@ -120,9 +120,14 @@ span#song-submitted-by {
     max-height: fit-content;
 }
 
-/*end contact*/
+#form-song-lyrics,
+#contact-form-msg {
+    height: 100px;
+}
 
-/*about * legal*/
+/*end form*/
+
+/*about & legal*/
 #about-container,
 #legal-container {
     text-align: justify;
@@ -139,16 +144,17 @@ span#song-submitted-by {
 /*end about & legal*/
 
 /*buttons*/
-#view-songs,
-#submit,
+#view-songs-btn,
+#song-form-btn,
 #contact-form-btn {
     background-color: var(--accent-color);
     border: none;
     transition: background-color 0.2s ease-in-out;
 }
 
-#view-songs:hover,
-#submit:hover {
+#view-songs-btn:hover,
+#song-form-btn:hover,
+#contact-form-btn:hover {
     background-color: var(--accent-color-dark);
 }
 

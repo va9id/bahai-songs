@@ -1,69 +1,113 @@
 // contact form validation
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("song-form");
-    const submitButton = document.getElementById("submit");
 
-    if (form) {
-        function sanitizeInput(value) {
-            const tempDiv = document.createElement("div");
-            tempDiv.textContent = value;
-            return tempDiv.innerHTML;
-        }
+    function sanitizeInput(value) {
+        const tempDiv = document.createElement("div");
+        tempDiv.textContent = value;
+        return tempDiv.innerHTML;
+    }
 
-        function checkFormValidity() {
-            let isFormValid = true;
-
-            form.querySelectorAll("input[required], select[required], textarea[required]").forEach((field) => {
-                if (field.dataset.touched && !field.checkValidity()) {
-                    field.classList.add("is-invalid");
-                    isFormValid = false;
-                } else if (field.dataset.touched) {
-                    field.classList.remove("is-invalid");
-                }
-            });
-
-            submitButton.disabled = !isFormValid;
-        }
-
-        function sendEmail() {
-            var name = document.getElementById("form-name").value;
-            var language = document.getElementById("form-language").value;
-            var songTitle = document.getElementById("form-song-title").value;
-            var songLyrics = document.getElementById("form-song-lyrics").value;
-            var additionalMsg = document.getElementById("form-additional-msg").value;
-
-            var subject = encodeURIComponent(`Song Request: ${songTitle} (${language})`);
-            var body = encodeURIComponent(`From: ${name}\n${additionalMsg}\nLyrics:\n\n${songLyrics}`);
-
-            var mailtoLink = "mailto:testemail@gmail.com?subject=" + subject + "&body=" + body;
-            window.location.href = mailtoLink;
-        }
+    function checkFormValidity(form, submitButton) {
+        let isFormValid = true;
 
         form.querySelectorAll("input[required], select[required], textarea[required]").forEach((field) => {
+            if (field.dataset.touched && !field.checkValidity()) {
+                field.classList.add("is-invalid");
+                isFormValid = false;
+            } else if (field.dataset.touched) {
+                field.classList.remove("is-invalid");
+            }
+        });
+
+        submitButton.disabled = !isFormValid;
+    }
+
+    function sendContactEmail() {
+        const name = document.getElementById("contact-form-name").value.trim();
+        const msg = document.getElementById("contact-form-msg").value.trim();
+
+        const subject = encodeURIComponent(document.getElementById("contact-form-subject").value);
+        const body = encodeURIComponent(`${msg}\n\nRegards,\n${name}`);
+
+        const mailToLink = `mailto:testemail@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = mailToLink;
+    }
+
+    function sendSubmitSongEmail() {
+        const name = document.getElementById("form-name").value.trim();
+        const language = document.getElementById("form-language").value;
+        const songTitle = document.getElementById("form-song-title").value.trim();
+        const songLyrics = document.getElementById("form-song-lyrics").value.trim();
+        const additionalMsg = document.getElementById("form-additional-msg").value.trim();
+
+        const subject = encodeURIComponent(`Song Request: ${songTitle} (${language})`);
+        const body = !additionalMsg ? encodeURIComponent(`Lyrics:\n\n${songLyrics}\n\nRegards,\n${name}`) : encodeURIComponent(`${additionalMsg}\n\nLyrics:\n\n${songLyrics}\n\nRegards,\n${name}`);
+
+        const mailtoLink = `mailto:testemail@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = mailtoLink;
+    }
+
+    const songForm = document.getElementById("song-form");
+
+    const contactForm = document.getElementById("contact-form");
+
+    if (songForm) {
+        const songFormBtn = document.getElementById("song-form-btn");
+        songForm.querySelectorAll("input[required], select[required], textarea[required]").forEach((field) => {
             field.addEventListener("input", function () {
                 field.dataset.touched = true;
                 field.value = sanitizeInput(field.value);
-                checkFormValidity();
+                checkFormValidity(songForm, songFormBtn);
             });
 
             field.addEventListener("blur", function () {
                 field.dataset.touched = true;
                 field.value = sanitizeInput(field.value);
-                checkFormValidity();
+                checkFormValidity(songForm, songFormBtn);
             });
         });
 
-        form.addEventListener("submit", function (event) {
+        songForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            form.querySelectorAll("input, select, textarea").forEach((field) => {
+            songForm.querySelectorAll("input, select, textarea").forEach((field) => {
                 field.value = sanitizeInput(field.value);
             });
 
-            sendEmail();
+            sendSubmitSongEmail();
         });
 
-        checkFormValidity();
+        checkFormValidity(songForm, songFormBtn);
+    }
+
+
+    if (contactForm) {
+        const contactFormBtn = document.getElementById("contact-form-btn");
+        contactForm.querySelectorAll("input[required], select[required], textarea[required]").forEach((field) => {
+            field.addEventListener("input", function () {
+                field.dataset.touched = true;
+                field.value = sanitizeInput(field.value);
+                checkFormValidity(contactForm, contactFormBtn);
+            });
+
+            field.addEventListener("blur", function () {
+                field.dataset.touched = true;
+                field.value = sanitizeInput(field.value);
+                checkFormValidity(contactForm, contactFormBtn);
+            });
+        });
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            contactForm.querySelectorAll("input, select, textarea").forEach((field) => {
+                field.value = sanitizeInput(field.value);
+            });
+
+            sendContactEmail();
+        });
+
+        checkFormValidity(contactForm, contactFormBtn);
     }
 });
 
@@ -220,6 +264,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                 option.textContent = new Intl.DisplayNames(["en"], { type: "language" }).of(val.language);
                 languageInput.appendChild(option);
             });
+
+            const option = document.createElement("option");
+            option.setAttribute("value", "new");
+            option.textContent = "New Language";
+            languageInput.appendChild(option);
+
+            const presetOption = document.createElement("option");
+            presetOption.setAttribute("value", "");
+            presetOption.setAttribute("disabled", "");
+            presetOption.setAttribute("selected", "");
+            presetOption.setAttribute("hidden", "");
+            languageInput.insertBefore(presetOption, languageInput.firstChild);
+
         } catch (error) {
             console.error("Error fetching languages: ", error);
         }

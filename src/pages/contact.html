@@ -14,12 +14,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
   <link rel="manifest" href="/assets/icons/site.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/assets/index.js" type="module"></script>
   <script src="/src/components/header.js"></script>
   <script src="/src/components/footer.js"></script>
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body class="d-flex flex-column">
-    <div id="contact-container" class="container flex-grow-1 pb-4"> 
+    <div id="form-container" class="container flex-grow-1 pb-4"> 
         <h2 class="page-title">Contact Us</h2>
             <form id="contact-form" class="mb-4">
             <div class="form-floating mb-3">
@@ -28,15 +29,16 @@
             </div>
             <div class="form-floating mb-3">
                 <select type="text" class="form-select" id="contact-form-subject" required>
-                    <option value="typo">Typo in Song Lyrics</option>
-                    <option value="bug">Bug or Issue</option>
-                    <option value="other">Other</option>
+                    <option value="" disabled selected hidden></option>
+                    <option value="Typo in Song Lyrics">Typo in Song Lyrics</option>
+                    <option value="Bug or Issue">Bug or Issue</option>
+                    <option value="Other">Other</option>
                 </select>
-                <label for="contact-form-subject">Language</label>
+                <label for="contact-form-subject">Subject</label>
               </div>  
             <div class="form-floating mb-3">
-                <textarea class="form-control" id="contact-form-message" maxlength="500" required></textarea>
-                <label for="contact-form-message">Message</label>
+                <textarea class="form-control" id="contact-form-msg" maxlength="500" required></textarea>
+                <label for="contact-form-msg">Message</label>
             </div>       
             <button id="contact-form-btn" type="submit" class="btn btn-primary ms-auto d-block" disabled>Send Email</button>
             </form>

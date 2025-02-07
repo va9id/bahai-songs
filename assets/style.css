@@ -100,9 +100,6 @@ span#song-submitted-by {
     padding-left: 0.5em;
 }
 
-#panel-group>.panel:last-of-type {
-    padding-bottom: 10%;
-}
 
 .list-group-item a {
     text-decoration: none;

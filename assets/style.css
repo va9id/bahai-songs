@@ -16,9 +16,7 @@ body {
 /* Use theme colors */
 .navbar,
 .nav-link,
-footer *,
-#view-songs,
-#submit {
+footer * {
     background-color: var(--accent-color) !important;
     color: var(--header-footer-text-color) !important;
 }
@@ -122,13 +120,14 @@ span#song-submitted-by {
 /*buttons*/
 #view-songs,
 #submit {
+    background-color: var(--accent-color);
     border: none;
-    transition: opacity 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 }
 
 #view-songs:hover,
 #submit:hover {
-    opacity: 80%;
+    background-color: var(--accent-color-dark);
 }
 
 /*end buttons*/

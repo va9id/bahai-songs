@@ -1,7 +1,7 @@
 # Bahá'í Songs
 
 <p align="center">
-  <img src="assets/imgs/logo.png" alt="Logo" width="200px">
+  <img src="assets/imgs/logo.png" alt="Logo" width="200px" style="background:white;">
 </p>
 
 This is an initiative to share Bahá'í song lyrics available at [bahaisongs.ca](https://bahaisongs.ca). 

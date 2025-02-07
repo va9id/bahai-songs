@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             <a class="nav-link ${currentPage === 'index.html' ? 'active' : ''}" href="${basePath}index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ${currentPage === 'songs.html' || currentPage == 'song.html' ? 'active' : ''}" href = "${basePath}src/pages/songs.html"> Songs</a>
+                            <a class="nav-link ${currentPage === 'songs.html' || currentPage == 'song.html' ? 'active' : ''}" href = "${basePath}src/pages/songs.html">Songs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ${currentPage === 'contact.html' ? 'active' : ''}" href="${basePath}src/pages/contact.html">Contact Us</a>
+                            <a class="nav-link ${currentPage === 'submit.html' ? 'active' : ''}" href="${basePath}src/pages/submit.html">Submit a Song</a>
                         </li>
                     </ul>
                 </div>

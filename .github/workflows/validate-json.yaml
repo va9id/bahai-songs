@@ -1,5 +1,4 @@
 name: Validate Songs JSON Schema
-
 on:
   push:
     paths:
@@ -11,18 +10,17 @@ on:
 jobs:
   validate_json:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-
+      
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
+      
       - name: Install AJV JSON Schema Validator
-        run: npm install -g ajv-cli
-
+        run: npm install -g ajv-cli @ajv-validator/config
+      
       - name: Validate songs json data against schema
-        run: ajv validate -s src/data/schema.json -d src/data/songs.json
+        run: ajv validate -s src/data/schema.json -d src/data/songs.json --spec draft7

@@ -17,11 +17,13 @@ If you want to request for a song to be added, please [submit a song] on our web
 - For any issues or suggestions, please create an [issue](https://github.com/va9id/bahai-songs/issues).
 
 - For any code changes you'd like to add, please create a [pull request](https://github.com/va9id/bahai-songs/pulls).
-  - You can also add a song by updating [`songs.json`](/src/data/songs.json). 
-    - *Note* that there's an automatic workflow when `songs.json` is updated to ensure the [schema](/src/data/schema.json) is respected.
+
+#### Adding songs programmatically [![Validate Songs JSON Schema](https://github.com/va9id/bahai-songs/actions/workflows/validate-json.yaml/badge.svg)](https://github.com/va9id/bahai-songs/actions/workflows/validate-json.yaml)
+- You can also add a song by updating [`songs.json`](/src/data/songs.json). 
+- There's an automatic workflow when `songs.json` is updated to ensure the [schema](/src/data/schema.json) is respected. 
 
 #### *Note*
-The techstack is plain and simple: HTML, CSS, Bootstrap and 🍦 `js`.<br><br
+The techstack is plain and simple: HTML, CSS, Bootstrap and 🍦 `js`.<br><br>
 *Please don't bother* submitting a PR where you turn the site into a `react` app or something. The **goal** here is to be **lightweight** 💨.
 
 

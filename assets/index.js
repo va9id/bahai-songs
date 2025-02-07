@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     }
                 }
             });
-            songsContainer.append(panelGroup);
+            songsContainer.insertBefore(panelGroup, songsContainer.firstChild);
         } catch (error) {
             console.error("Error loading song list:", error);
         }

@@ -78,6 +78,9 @@ footer {
     font-size: 1.5em;
 }
 
+#song-title {
+    color: var(--accent-color-dark);
+}
 
 #song-lyrics {
     justify-content: center;
@@ -104,10 +107,17 @@ span#song-submitted-by {
     padding-left: 0.5em;
 }
 
+#panel-group>.panel:last-of-type {
+    padding-bottom: 10%;
+}
 
 .list-group-item a {
     text-decoration: none;
     color: var(--accent-color-dark);
+}
+
+#cant-find a {
+    color: inherit;
 }
 
 /*end songs*/

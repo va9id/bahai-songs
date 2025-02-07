@@ -30,6 +30,10 @@ footer * {
     margin-top: 56px;
 }
 
+#home-description {
+    text-align: justify;
+}
+
 #logo {
     width: 50%;
     max-width: 400px;

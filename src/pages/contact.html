@@ -20,28 +20,28 @@
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body class="d-flex flex-column">    
-    <div id="contact-body" class="container flex-grow-1"> 
+    <div id="form-body" class="container flex-grow-1"> 
       <h2 class="page-title">Submit a Song</h2>
         <form id="emailForm" class="mb-4">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="person-name" required>
-            <label for="person-name">Name</label>
+            <input type="text" class="form-control" id="form-name" required>
+            <label for="form-name">Name</label>
           </div>
           <div class="form-floating mb-3">
-            <select type="text" class="form-select" id="song-language" required></select>   
-            <label for="song-language">Language</label>
+            <select type="text" class="form-select" id="form-language" required></select>   
+            <label for="form-language">Language</label>
           </div>  
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="song-name" required>
-            <label for="song-name">Song Title</label>
+            <input type="text" class="form-control" id="form-song-title" required>
+            <label for="form-song-title">Song Title</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" id="song-lyrics" maxlength="500" required></textarea>
-            <label for="song-lyrics">Song Lyrics</label>
+            <textarea class="form-control" id="form-song-lyrics" maxlength="500" required></textarea>
+            <label for="form-song-lyrics">Song Lyrics</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" id="addtional-msg" maxlength="250"></textarea>
-            <label for="addtional-msg">Message&nbsp;<i id="optional">(opt)</i></label>
+            <textarea class="form-control" id="form-additional-msg" maxlength="250"></textarea>
+            <label for="form-additional-msg">Message&nbsp;<i id="optional">(opt)</i></label>
           </div>          
           <button id="submit" type="submit" class="btn btn-primary  ms-auto d-block" disabled>Send Email</button>
         </form>

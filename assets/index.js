@@ -1,6 +1,6 @@
 // contact form validation
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("emailForm");
+    const form = document.getElementById("song-form");
     const submitButton = document.getElementById("submit");
 
     if (form) {

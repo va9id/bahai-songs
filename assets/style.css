@@ -140,7 +140,8 @@ span#song-submitted-by {
 
 /*buttons*/
 #view-songs,
-#submit {
+#submit,
+#contact-form-btn {
     background-color: var(--accent-color);
     border: none;
     transition: background-color 0.2s ease-in-out;

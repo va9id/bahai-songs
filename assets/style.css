@@ -13,12 +13,12 @@ body {
     height: 100%;
 }
 
-/* Use theme colors */
 .navbar,
 .nav-link,
 footer * {
     background-color: var(--accent-color) !important;
     color: var(--header-footer-text-color) !important;
+    font-weight: lighter;
 }
 
 /*home*/
@@ -30,7 +30,9 @@ footer * {
     margin-top: 56px;
 }
 
-
+.home-container>h1 {
+    font-weight: bolder;
+}
 
 #logo {
     width: 50%;
@@ -74,6 +76,8 @@ footer {
     margin-top: var(--page-heading-margin-top);
 }
 
+/*optima*/
+
 .song-header i {
     font-size: 1.5em;
 }
@@ -82,15 +86,16 @@ footer {
     color: var(--accent-color-dark);
 }
 
+#song-author {
+    color: var(--accent-color);
+}
+
 #song-lyrics {
     justify-content: center;
     align-items: center;
     text-align: justify;
 }
 
-span#song-submitted-by {
-    align-items: end;
-}
 
 /*end song*/
 
@@ -152,18 +157,32 @@ span#song-submitted-by {
     font-weight: bold;
 }
 
+code {
+    color: var(--accent-color);
+}
+
 /*end about & legal*/
 
 /*buttons*/
-#view-songs-btn,
 #song-form-btn,
 #contact-form-btn {
     background-color: var(--accent-color);
     border: none;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
 }
 
-#view-songs-btn:hover,
+#view-songs-btn {
+    background: rgb(110, 132, 108);
+    background: linear-gradient(90deg, rgba(110, 132, 108, 1) 0%, rgba(142, 165, 140, 1) 100%);
+    border: none;
+    font-weight: 450;
+}
+
+#view-songs-btn:hover {
+    opacity: 80%;
+}
+
+
 #song-form-btn:hover,
 #contact-form-btn:hover {
     background-color: var(--accent-color-dark);

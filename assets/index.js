@@ -22,93 +22,73 @@ document.addEventListener("DOMContentLoaded", function () {
         submitButton.disabled = !isFormValid;
     }
 
-    function sendContactEmail() {
-        const name = document.getElementById("contact-form-name").value.trim();
-        const msg = document.getElementById("contact-form-msg").value.trim();
+    function attachValidationEvents(form, submitButton) {
+        form.querySelectorAll("input[required], select[required], textarea[required]").forEach((field) => {
+            field.addEventListener("input", function () {
+                field.dataset.touched = true;
+                field.value = sanitizeInput(field.value);
+                checkFormValidity(form, submitButton);
+            });
 
-        const subject = encodeURIComponent(document.getElementById("contact-form-subject").value);
-        const body = encodeURIComponent(`${msg}\n\nRegards,\n${name}`);
+            field.addEventListener("blur", function () {
+                field.dataset.touched = true;
+                field.value = sanitizeInput(field.value);
+                checkFormValidity(form, submitButton);
+            });
+        });
+    }
 
-        const mailToLink = `mailto:testemail@gmail.com?subject=${subject}&body=${body}`;
+    function sendEmail(subject, body) {
+        const recepient = "testemail@gmail.com";
+        const mailToLink = `mailto:${recepient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailToLink;
     }
 
-    function sendSubmitSongEmail() {
-        const name = document.getElementById("form-name").value.trim();
-        const language = document.getElementById("form-language").value;
-        const songTitle = document.getElementById("form-song-title").value.trim();
-        const songLyrics = document.getElementById("form-song-lyrics").value.trim();
-        const additionalMsg = document.getElementById("form-additional-msg").value.trim();
+    function handleFormSubmit(event, formType) {
+        event.preventDefault();
 
-        const subject = encodeURIComponent(`Song Request: ${songTitle} (${language})`);
-        const body = !additionalMsg ? encodeURIComponent(`Lyrics:\n\n${songLyrics}\n\nRegards,\n${name}`) : encodeURIComponent(`${additionalMsg}\n\nLyrics:\n\n${songLyrics}\n\nRegards,\n${name}`);
+        const form = event.target;
+        form.querySelectorAll("input, select, textarea").forEach((field) => {
+            field.value = sanitizeInput(field.value);
+        });
 
-        const mailtoLink = `mailto:testemail@gmail.com?subject=${subject}&body=${body}`;
-        window.location.href = mailtoLink;
+        if (formType === "contact") {
+            const name = document.getElementById("contact-form-name").value.trim();
+            const subject = document.getElementById("contact-form-subject").value;
+            const msg = document.getElementById("contact-form-msg").value.trim();
+
+            const body = `${msg}\n\nRegards,\n${name}`;
+            sendEmail(subject, body);
+        }
+
+        if (formType === "song") {
+            const name = document.getElementById("form-name").value.trim();
+            const language = document.getElementById("form-language").value;
+            const songTitle = document.getElementById("form-song-title").value.trim();
+            const songLyrics = document.getElementById("form-song-lyrics").value.trim();
+            const additionalMsg = document.getElementById("form-additional-msg").value.trim();
+
+            const subject = `Song Request: ${songTitle} (${language})`;
+            const body = additionalMsg
+                ? `${additionalMsg}\n\nLyrics:\n\n${songLyrics}\n\nRegards,\n${name}`
+                : `Lyrics:\n\n${songLyrics}\n\nRegards,\n${name}`;
+
+            sendEmail(subject, body);
+        }
     }
 
-    const songForm = document.getElementById("song-form");
+    function initForm(formId, btnId, formType) {
+        const form = document.getElementById(formId);
+        if (!form) return;
 
-    const contactForm = document.getElementById("contact-form");
-
-    if (songForm) {
-        const songFormBtn = document.getElementById("song-form-btn");
-        songForm.querySelectorAll("input[required], select[required], textarea[required]").forEach((field) => {
-            field.addEventListener("input", function () {
-                field.dataset.touched = true;
-                field.value = sanitizeInput(field.value);
-                checkFormValidity(songForm, songFormBtn);
-            });
-
-            field.addEventListener("blur", function () {
-                field.dataset.touched = true;
-                field.value = sanitizeInput(field.value);
-                checkFormValidity(songForm, songFormBtn);
-            });
-        });
-
-        songForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            songForm.querySelectorAll("input, select, textarea").forEach((field) => {
-                field.value = sanitizeInput(field.value);
-            });
-
-            sendSubmitSongEmail();
-        });
-
-        checkFormValidity(songForm, songFormBtn);
+        const submitButton = document.getElementById(btnId);
+        attachValidationEvents(form, submitButton);
+        form.addEventListener("submit", (event) => handleFormSubmit(event, formType));
+        checkFormValidity(form, submitButton);
     }
 
-
-    if (contactForm) {
-        const contactFormBtn = document.getElementById("contact-form-btn");
-        contactForm.querySelectorAll("input[required], select[required], textarea[required]").forEach((field) => {
-            field.addEventListener("input", function () {
-                field.dataset.touched = true;
-                field.value = sanitizeInput(field.value);
-                checkFormValidity(contactForm, contactFormBtn);
-            });
-
-            field.addEventListener("blur", function () {
-                field.dataset.touched = true;
-                field.value = sanitizeInput(field.value);
-                checkFormValidity(contactForm, contactFormBtn);
-            });
-        });
-
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            contactForm.querySelectorAll("input, select, textarea").forEach((field) => {
-                field.value = sanitizeInput(field.value);
-            });
-
-            sendContactEmail();
-        });
-
-        checkFormValidity(contactForm, contactFormBtn);
-    }
+    initForm("contact-form", "contact-form-btn", "contact");
+    initForm("song-form", "song-form-btn", "song");
 });
 
 // build list of songs by language

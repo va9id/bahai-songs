@@ -76,14 +76,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             const data = await response.json();
 
             const panelGroup = document.createElement("div");
-            //panelGroup.classList.add("panel-group");
             panelGroup.id = "panel-group";
 
             data.music.forEach((val, index) => {
 
                 const panel = document.createElement("div");
                 panel.classList.add("panel", "panel-default");
-
 
                 const panelHeading = document.createElement("div");
                 panelHeading.classList.add("panel-heading");
@@ -94,7 +92,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 const panelAnchor = document.createElement("a");
                 panelAnchor.setAttribute("data-bs-toggle", "collapse");
-                panelAnchor.setAttribute("href", `#${val.languageCode}-section`);
+                panelAnchor.setAttribute("href", `#${val.language}-section`);
                 panelAnchor.classList.add("songs-by-language");
 
                 const panelAnchorArrow = document.createElement("i")
@@ -105,8 +103,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     panelAnchorArrow.classList.add("bi-chevron-down");
                 }
 
-
-                const panelText = document.createTextNode(`${val.language} Songs`);
+                const panelText = document.createTextNode(`${new Intl.DisplayNames(["en"], { type: "language" }).of(val.language)} Songs`);
 
                 panelAnchor.appendChild(panelAnchorArrow);
                 panelTitle.appendChild(panelText);
@@ -115,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 panel.appendChild(panelHeading);
 
                 const collapsableSection = document.createElement("div");
-                collapsableSection.id = `${val.languageCode}-section`;
+                collapsableSection.id = `${val.language}-section`;
                 collapsableSection.classList.add("panel-collapse", "collapse");
                 if (index === 0) collapsableSection.classList.add("show");
 
@@ -129,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     const songLink = document.createElement("a");
                     songLink.textContent = song.title;
 
-                    songLink.href = `song.html?lang=${encodeURIComponent(val.languageCode)}&id=${index}`;
+                    songLink.href = `song.html?lang=${encodeURIComponent(val.language)}&id=${index}`;
 
                     listItem.appendChild(songLink);
                     list.appendChild(listItem);
@@ -173,10 +170,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (songTitleElement) {
 
         const urlParams = new URLSearchParams(window.location.search);
-        const languageParam = urlParams.get("lang");
-        const idParam = parseInt(urlParams.get("id"), 10);
+        const language = urlParams.get("lang");
+        const id = parseInt(urlParams.get("id"), 10);
 
-        if (!languageParam || isNaN(idParam)) {
+        if (!language || isNaN(id)) {
             document.getElementById("song-title").textContent = "Song not found";
             return;
         }
@@ -185,14 +182,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             const response = await fetch("/src/data/songs.json");
             const data = await response.json();
 
-            const category = data.music.find(l => l.languageCode === languageParam);
+            const category = data.music.find(l => l.language === language);
 
-            if (!category || !category.songs[idParam]) {
+            if (!category || !category.songs[id]) {
                 songTitleElement.textContent = "Song not found";
                 return;
             }
 
-            const selectedSong = category.songs[idParam];
+            const selectedSong = category.songs[id];
 
             songTitleElement.textContent = selectedSong.title;
             document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
@@ -200,9 +197,28 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         } catch (error) {
-            console.error(`Error loading song (language=${languageParam}, id=${idParam}): ${error}`);
+            console.error(`Error loading song (language=${language}, id=${id}): ${error}`);
             songTitleElement.textContent = "Error loading song/song details.";
         }
     }
 });
 
+document.addEventListener("DOMContentLoaded", async function () {
+    const languageInput = document.getElementById("song-language");
+    if (languageInput) {
+        const songsData = "/src/data/songs.json";
+        try {
+            const response = await fetch(songsData);
+            const data = await response.json();
+
+            data.music.forEach((val) => {
+                const option = document.createElement("option");
+                option.setAttribute("value", `${val.language}`);
+                option.textContent = new Intl.DisplayNames(["en"], { type: "language" }).of(val.language);
+                languageInput.appendChild(option);
+            });
+        } catch (error) {
+            console.error("Error fetching languages: ", error);
+        }
+    }
+});

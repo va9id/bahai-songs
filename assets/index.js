@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             songTitleElement.textContent = selectedSong.title;
             document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
-            document.getElementById("song-submitted-by").textContent = "Submitted by: " + (selectedSong["submitted-by"] || "Unknown");
+            document.getElementById("song-submitted-by").textContent = "Submitted by: " + (selectedSong["submitted_by"] || "Unknown");
 
 
         } catch (error) {

@@ -1,3 +1,4 @@
+// contact form validation
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("emailForm");
     const submitButton = document.getElementById("submit");
@@ -25,11 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function sendEmail() {
-            var name = document.getElementById("person-name").value;
-            var language = document.getElementById("song-language").value;
-            var songTitle = document.getElementById("song-name").value;
-            var songLyrics = document.getElementById("song-lyrics").value;
-            var additionalMsg = document.getElementById("addtional-msg").value;
+            var name = document.getElementById("form-name").value;
+            var language = document.getElementById("form-language").value;
+            var songTitle = document.getElementById("form-song-title").value;
+            var songLyrics = document.getElementById("form-song-lyrics").value;
+            var additionalMsg = document.getElementById("form-addtional-msg").value;
 
             var subject = encodeURIComponent(`Song Request: ${songTitle} (${language})`);
             var body = encodeURIComponent(`From: ${name}\n${additionalMsg}\nLyrics:\n\n${songLyrics}`);
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
+// build list of songs by language
 document.addEventListener("DOMContentLoaded", async function () {
     const songsContainer = document.getElementById("songs-container");
     if (songsContainer) {
@@ -165,6 +166,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
+// build individual song page based on lang and id
 document.addEventListener("DOMContentLoaded", async function () {
     const songTitleElement = document.getElementById("song-title");
     if (songTitleElement) {
@@ -203,8 +205,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
+// populate contact form language input based on song languages
 document.addEventListener("DOMContentLoaded", async function () {
-    const languageInput = document.getElementById("song-language");
+    const languageInput = document.getElementById("form-language");
     if (languageInput) {
         const songsData = "/src/data/songs.json";
         try {

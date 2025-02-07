@@ -20,11 +20,14 @@
 </head>
 <body class="d-flex flex-column">  
   <div class="container flex-grow-1">
-    <div class="home-container d-flex flex-column pb-5 px-4">
+    <div class="home-container d-flex flex-column pb-4 px-4">
       <img id="logo" class="img-fluid d-block mx-auto" src="assets/imgs/logo.png" alt="logo">
       <h1>Bahá'í Songs</h1>
       <p id="home-description" class="w-75 text-wrap">Welcome to Bahá'í Songs, an initiative to share songs we sing with the world.</p>
-      <button id="view-songs-btn" type="button" class="btn btn-primary btn-lg px-4" onclick="window.location.href='/src/pages/songs.html'">View Songs</button>
+      <div class="d-flex justify-content-center gap-3">
+        <button id="view-songs-btn" type="button" class="btn btn-primary btn-lg px-4 text-nowrap fs-4 fs-md-5" onclick="window.location.href='/src/pages/songs.html'">View Songs</button>
+        <button id="random-song-btn" type="button" class="btn btn-primary btn-lg px-4 text-nowrap fs-4 fs-md-5">Random Song</button>
+      </div>
     </div>
   </div>
 </body>

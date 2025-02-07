@@ -171,14 +171,25 @@ code {
     transition: background-color 0.25s ease-in-out;
 }
 
+#view-songs-btn,
+#random-song-btn {
+    border: none;
+    font-weight: 450;
+    transition: opacity 0.25s ease-in-out;
+}
+
 #view-songs-btn {
     background: rgb(110, 132, 108);
     background: linear-gradient(90deg, rgba(110, 132, 108, 1) 0%, rgba(142, 165, 140, 1) 100%);
-    border: none;
-    font-weight: 450;
 }
 
-#view-songs-btn:hover {
+#random-song-btn {
+    background: rgb(110, 132, 108);
+    background: linear-gradient(270deg, rgba(110, 132, 108, 1) 0%, rgba(142, 165, 140, 1) 100%);
+}
+
+#view-songs-btn:hover,
+#random-song-btn:hover {
     opacity: 80%;
 }
 

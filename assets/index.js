@@ -190,44 +190,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
-// build individual song page based on lang and id
-document.addEventListener("DOMContentLoaded", async function () {
-    const songTitleElement = document.getElementById("song-title");
-    if (songTitleElement) {
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const language = urlParams.get("lang");
-        const id = parseInt(urlParams.get("id"), 10);
-
-        if (!language || isNaN(id)) {
-            document.getElementById("song-title").textContent = "Song not found";
-            return;
-        }
-
-        try {
-            const response = await fetch("/src/data/songs.json");
-            const data = await response.json();
-
-            const category = data.music.find(l => l.language === language);
-
-            if (!category || !category.songs[id]) {
-                songTitleElement.textContent = "Song not found";
-                return;
-            }
-
-            const selectedSong = category.songs[id];
-
-            songTitleElement.textContent = selectedSong.title;
-            document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
-            document.getElementById("song-author").textContent = selectedSong.author;
-
-        } catch (error) {
-            console.error(`Error loading song (language=${language}, id=${id}): ${error}`);
-            songTitleElement.textContent = "Error loading song/song details.";
-        }
-    }
-});
-
 // populate contact form language input based on song languages
 document.addEventListener("DOMContentLoaded", async function () {
     const languageInput = document.getElementById("form-language");
@@ -262,10 +224,50 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
+// Load individual song page
+async function loadSongContent(language, id) {
+    const songTitleElement = document.getElementById("song-title");
 
-// random song
-document.addEventListener("DOMContentLoaded", function () {
+    if (!language || isNaN(id)) {
+        songTitleElement.textContent = "Song not found";
+        return;
+    }
+
+    try {
+        const response = await fetch("/src/data/songs.json");
+        const data = await response.json();
+
+        const category = data.music.find(l => l.language === language);
+
+        if (!category || !category.songs[id]) {
+            songTitleElement.textContent = "Song not found";
+            return;
+        }
+
+        const selectedSong = category.songs[id];
+
+        songTitleElement.textContent = selectedSong.title;
+        document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
+        document.getElementById("song-author").textContent = selectedSong.author;
+
+    } catch (error) {
+        console.error(`Error loading song (language=${language}, id=${id}): ${error}`);
+        songTitleElement.textContent = "Error loading song/song details.";
+    }
+}
+
+// Random button functionality based on what page you're on
+document.addEventListener("DOMContentLoaded", async function () {
+    const songTitleElement = document.getElementById("song-title");
     const randomSongBtn = document.getElementById("random-song-btn");
+
+    if (songTitleElement) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const language = urlParams.get("lang");
+        const id = parseInt(urlParams.get("id"), 10);
+        await loadSongContent(language, id);
+    }
+
     if (randomSongBtn) {
         randomSongBtn.addEventListener("click", async function (event) {
             event.preventDefault();
@@ -282,7 +284,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
                 const randomIdx = Math.floor(Math.random() * allSongs.length);
 
-                window.location.href = `src/pages/song.html?lang=${encodeURIComponent(allSongs[randomIdx].language)}&id=${allSongs[randomIdx].idx}`;
+                const isOnSongPage = window.location.pathname.includes('song.html');
+                if (isOnSongPage) {
+                    const newURL = new URL(window.location.href);
+                    newURL.searchParams.set('lang', allSongs[randomIdx].language);
+                    newURL.searchParams.set('id', allSongs[randomIdx].idx);
+                    window.history.pushState({}, '', newURL);
+
+                    await loadSongContent(allSongs[randomIdx].language, allSongs[randomIdx].idx);
+                } else {
+                    // clicked random from home page
+                    window.location.href = `src/pages/song.html?lang=${encodeURIComponent(allSongs[randomIdx].language)}&id=${allSongs[randomIdx].idx}`;
+                }
 
             } catch (error) {
                 console.error("Error picking random song: ", error);

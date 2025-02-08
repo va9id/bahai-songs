@@ -95,6 +95,18 @@ footer {
     align-items: center;
 }
 
+span.song-header>#random-song-btn {
+    background: none;
+    font-size: 1em;
+    color: var(--accent-color);
+    transition: color 0.2s ease-in-out;
+}
+
+span.song-header>#random-song-btn:hover {
+    color: var(--accent-color-dark);
+}
+
+
 
 /*end song*/
 

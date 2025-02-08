@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function sendEmail(subject, body) {
-        const recepient = "testemail@gmail.com";
+        const recepient = "bahaisongscontact@gmail.com";
         const mailToLink = `mailto:${recepient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailToLink;
     }

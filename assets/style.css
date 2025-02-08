@@ -161,6 +161,11 @@ code {
     color: var(--accent-color);
 }
 
+#legal-email {
+    color: var(--accent-color) !important;
+    font-weight: 400 !important;
+}
+
 /*end about & legal*/
 
 /*buttons*/

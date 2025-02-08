@@ -24,20 +24,16 @@
                                     "type": "string",
                                     "description": "The lyrics of the song, with '\\n' used for line breaks."
                                 },
-                                "words_of": {
+                                "author": {
                                     "type": "string",
                                     "description": "The author of the words, if available.",
                                     "default": ""
-                                },
-                                "submitted_by": {
-                                    "type": "string",
-                                    "description": "The contributor or source of the song."
                                 }
                             },
                             "required": [
                                 "title",
                                 "lyrics",
-                                "submitted_by"
+                                "author"
                             ]
                         }
                     }

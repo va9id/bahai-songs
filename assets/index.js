@@ -219,8 +219,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             songTitleElement.textContent = selectedSong.title;
             document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
-            document.getElementById("song-author").textContent = selectedSong["words_of"] ? [selectedSong["words_of"]] : "";
-            document.getElementById("song-submitted-by").textContent = `Submitted by: ${selectedSong["submitted_by"]}`;
+            document.getElementById("song-author").textContent = selectedSong.author;
+
 
 
         } catch (error) {

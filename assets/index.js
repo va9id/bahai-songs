@@ -221,8 +221,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
             document.getElementById("song-author").textContent = selectedSong.author;
 
-
-
         } catch (error) {
             console.error(`Error loading song (language=${language}, id=${id}): ${error}`);
             songTitleElement.textContent = "Error loading song/song details.";
@@ -276,13 +274,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 const response = await fetch(songsData);
                 const data = await response.json();
 
-                const music = data.music;
-                const randomIdx = Math.floor(Math.random() * music.length);
-                const random = music[randomIdx];
-                const language = random.language;
-                const randomSongIdx = Math.floor(Math.random() * random.songs.length);
+                const allSongs = data.music.flatMap(val =>
+                    val.songs.map((_, idx) => ({
+                        language: val.language,
+                        idx: idx
+                    }))
+                );
+                const randomIdx = Math.floor(Math.random() * allSongs.length);
 
-                window.location.href = `src/pages/song.html?lang=${encodeURIComponent(language)}&id=${randomSongIdx}`;
+                window.location.href = `src/pages/song.html?lang=${encodeURIComponent(allSongs[randomIdx].language)}&id=${allSongs[randomIdx].idx}`;
+
             } catch (error) {
                 console.error("Error picking random song: ", error);
             }

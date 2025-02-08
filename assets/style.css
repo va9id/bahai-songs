@@ -145,9 +145,7 @@ footer {
 /*about & legal*/
 #about-container,
 #legal-container {
-    text-align: justify;
     display: block;
-
 }
 
 #about-container a,

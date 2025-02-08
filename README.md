@@ -10,7 +10,7 @@ This is an initiative to share Bahá'í song lyrics available at [bahaisongs.ca]
 
 ### Want to add a song? 
 
-If you want to request for a song to be added, please [submit a song] on our website.
+If you want to request for a song to be added, please [submit a song](https://bahaisongs.ca/src/pages/submit.html) on our website.
 
 ### Code
 
@@ -20,6 +20,7 @@ If you want to request for a song to be added, please [submit a song] on our web
 
 #### Adding songs programmatically [![Validate Songs JSON Schema](https://github.com/va9id/bahai-songs/actions/workflows/validate-json.yaml/badge.svg)](https://github.com/va9id/bahai-songs/actions/workflows/validate-json.yaml)
 - You can also add a song by updating [`songs.json`](/src/data/songs.json), which has a workflow when updated ensuring the [schema](/src/data/schema.json) is respected. 
+- When adding a song for a new language, ensure the `"language"` key has the correct [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code value.
 
 #### *Note*
 The techstack is plain and simple: HTML, CSS, Bootstrap and 🍦 `js`.<br><br>

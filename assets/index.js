@@ -263,3 +263,29 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 });
+
+
+// random song
+document.addEventListener("DOMContentLoaded", function () {
+    const randomSongBtn = document.getElementById("random-song-btn");
+    if (randomSongBtn) {
+        randomSongBtn.addEventListener("click", async function (event) {
+            event.preventDefault();
+            const songsData = "/src/data/songs.json";
+            try {
+                const response = await fetch(songsData);
+                const data = await response.json();
+
+                const music = data.music;
+                const randomIdx = Math.floor(Math.random() * music.length);
+                const random = music[randomIdx];
+                const language = random.language;
+                const randomSongIdx = Math.floor(Math.random() * random.songs.length);
+
+                window.location.href = `src/pages/song.html?lang=${encodeURIComponent(language)}&id=${randomSongIdx}`;
+            } catch (error) {
+                console.error("Error picking random song: ", error);
+            }
+        });
+    }
+});

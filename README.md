@@ -1,4 +1,4 @@
-# Bahá'í Songs
+# Bahá'í Songs [![pages-build-deployment](https://github.com/va9id/bahai-songs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/va9id/bahai-songs/actions/workflows/pages/pages-build-deployment)
 
 <p align="center">
   <img src="assets/imgs/logo.jpeg" alt="Logo" width="200px">

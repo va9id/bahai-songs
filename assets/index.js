@@ -103,7 +103,23 @@ document.addEventListener("DOMContentLoaded", async function () {
             const panelGroup = document.createElement("div");
             panelGroup.id = "panel-group";
 
+            const btnGroupContainer = document.createElement("div");
+            btnGroupContainer.classList.add("d-flex", "justify-content-center", "px-3", "pt-3");
+
+            const btnGroup = document.createElement("div");
+            btnGroup.classList.add("btn-group");
+            btnGroup.setAttribute("role", "group");
+            btnGroup.setAttribute("aria-label", "languages of songs");
+            btnGroup.id = "lang-btns";
+
             data.music.forEach((val, index) => {
+
+                const btnGroupElem = document.createElement("a");
+                btnGroupElem.href = `#${val.language}-section-heading`;
+                btnGroupElem.classList.add("px-2");
+                btnGroupElem.textContent = `${new Intl.DisplayNames(["en"], { type: "language" }).of(val.language)}`;
+
+                btnGroup.appendChild(btnGroupElem);
 
                 const panel = document.createElement("div");
                 panel.classList.add("panel", "panel-default");
@@ -112,8 +128,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                 panelHeading.classList.add("panel-heading");
 
                 const panelTitle = document.createElement("h2");
-
                 panelTitle.classList.add("panel-title", "mt-4");
+                panelTitle.id = `${val.language}-section-heading`;
 
                 const panelAnchor = document.createElement("a");
                 panelAnchor.setAttribute("data-bs-toggle", "collapse");
@@ -183,7 +199,24 @@ document.addEventListener("DOMContentLoaded", async function () {
                     }
                 }
             });
-            songsContainer.insertBefore(panelGroup, songsContainer.firstChild);
+
+            btnGroupContainer.appendChild(btnGroup);
+            songsContainer.insertBefore(btnGroupContainer, songsContainer.firstChild);
+            songsContainer.insertBefore(panelGroup, songsContainer.children[1]);
+
+            // Collapses the panel for the langauge you navigate to from the btn group
+            btnGroup.addEventListener("click", function (event) {
+                const target = event.target.closest("a");
+                if (!target) return;
+                const hash = target.getAttribute("href").replace("-heading", "");
+                if (hash) {
+                    const section = document.querySelector(hash);
+                    if (section && section.classList.contains("collapse") && !section.classList.contains("show")) {
+                        new bootstrap.Collapse(section, { toggle: true });
+                    }
+                }
+            });
+
         } catch (error) {
             console.error("Error loading song list:", error);
         }

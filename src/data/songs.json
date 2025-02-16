@@ -1,109 +1,154 @@
 {
-    "music": [
+  "music": [
+    {
+      "language": "en",
+      "songs": [
         {
-            "language": "en",
-            "songs": [
-                {
-                    "title": "A Quarter Century",
-                    "lyrics": "Over the course of a quarter century,\\n\\nthe Bahá’í world underwent a transformation that endowed it with an undreamed-of capacity, undreamed-of capacity to learn, to grow, and to serve humanity (x2)\\n\\nBut, however bright were the achievements of this period,\\n\\nthey must be eclipsed by (x2)\\n\\nwhat is to come.",
-                    "author": "Universal House of Justice"
-                },
-                {
-                    "title": "Blessed is the Spot",
-                    "lyrics": "Blessed is the spot, and the house, and the place,\\n\\nAnd the city, and the heart, and the mountain\\n\\nAnd the refuge, and the cave, and the valley, and the land,\\n\\nAnd the sea, and the island, and the meadow\\n\\nWhere mention of God hath been made,\\n\\nAnd His praise glorified.",
-                    "author": "Bahá'u'lláh"
-                },
-                {
-                    "title": "God is Faithful",
-                    "lyrics": "Remember at all times and in all places\\n\\nThat God is faithful and do not doubt this.\\n\\nBe patient even though great calamities may come upon thee\\n\\nYet, Fear not! Fear not!\\nBe firm in the path of thy Lord;\\n\\nAs a mountain unmoved, un-changing in thy steadfastness (x4)",
-                    "author": "Bahá'u'lláh"
-                },
-                {
-                    "title": "If Thou Lovest Me",
-                    "lyrics": "If thou lovest Me turn away from thyself\\nIf thou seekest My pleasure regard not thine own\\nThat Thou mayest die in Me\\nAnd I may eternally live in thee\\n\\nO Son of Man",
-                    "author": "Bahá'u'lláh"
-                },
-                {
-                    "title": "O God Guide Me",
-                    "lyrics": "O God, guide me, protect me,\\n\\nIllumine the lamp of my heart and make of me a brilliant star.\\n\\nThou art the Mighty and the Powerful.",
-                    "author": "'Abdu'l-Bahá"
-                },
-                {
-                    "title": "Pass By",
-                    "lyrics": "Pass by whatever exists in this world and find me.\\n\\nI am the Sun of Perception and the Ocean of Science.\\n\\nI revive the withered ones and quicken the dead. I am that Light which illumines the path of Insight.\\n\\nI am the Falcon of the Hand of the Almighty; I bear healing in My wings and teach the knowledge of soaring to the Heaven of Truth.",
-                    "author": "'Abdu'l-Bahá"
-                },
-                {
-                    "title": "Remember my Days",
-                    "lyrics": "Remember my Days during thy days, and My distress and banishment in this remote prison.\\n\\nAnd be thou so steadfast in My love that thy heart shall not waver, even if the swords of the enemies rain blows upon thee and all the heavens and the earth arise against thee",
-                    "author": "Bahá'u'lláh"
-                },
-                {
-                    "title": "Remover of Difficulties",
-                    "lyrics": "Is there any Remover of difficulties save God? Say: Praised be God! He is God! All are His servants, and all abide by His bidding! (x3)",
-                    "author": "The Báb"
-                },
-                {
-                    "title": "Say God Sufficeth",
-                    "lyrics": "Say God sufficeth all things above all things,\\nAnd nothing in the heavens or the earth but God sufficeth (x3)\\n\\nVerily He is in Himself\\nthe Knower, the Sustainer, the Omnipotent\\n\\nSay God sufficeth (x4)",
-                    "author": "The Báb"
-                },
-                {
-                    "title": "The Gate of God",
-                    "lyrics": "O thou who art the first to believe in Me! (x4)\\nEighteen souls must, of their own accord, accept Me, accept Me\\nand recognise the truth (the truth), the truth of My Revelation. (x2)\\n\\nVerily I say, I am the Bab, Verily I say, I am the Gate of God (x4)\\n\\nEighteen souls must, of their own accord, accept Me, accept Me\\nVerily I say, I am the Bab, Verily I say, I am the Gate of God (x2)\\n\\nVerily I say, I am the Bab, Verily I say, I am the Gate of God(x2)",
-                    "author": "The Báb"
-                },
-                {
-                    "title": "Thou Indeed Hast Power",
-                    "lyrics": "O my God! I ask Thee, by Thy most glorious Name, to aid me in that which will cause\\n\\nThe affairs of Thy servants to prosper, and Thy cities to flourish.\\n\\nThou, indeed, hast power over all things!",
-                    "author": "Bahá'u'lláh"
-                },
-                {
-                    "title": "Unite and Bind",
-                    "lyrics": "Unite and bind together the hearts, join in accord all the souls.\\n\\nOh Lord! Make these faces radiant through the light of Thy oneness.",
-                    "author": "'Abdu'l-Bahá"
-                },
-                {
-                    "title": "Unite the Hearts",
-                    "lyrics": "O my God! O my God! Unite the hearts of Thy servants,\\nand reveal to them Thy great purpose. (x3)\\n\\nMay they follow Thy commandments and abide in Thy law.\\n\\nHelp them, O God, in their endeavor,\\nand grant them strength to serve Thee.",
-                    "author": "Bahá'u'lláh"
-                }
-            ]
+          "title": "A Quarter Century",
+          "lyrics": "Over the course of a quarter century,\\n\\nthe Bahá'í world underwent a transformation that endowed it with an undreamed-of capacity, undreamed-of capacity to learn, to grow, and to serve humanity (x2)\\n\\nBut, however bright were the achievements of this period,\\n\\nthey must be eclipsed by (x2)\\n\\nwhat is to come.",
+          "author": "Universal House of Justice"
         },
         {
-            "language": "fr",
-            "songs": [
-                {
-                    "title": "Dis Dieu",
-                    "lyrics": "Dis Dieu, suffit à tout au délà de tout\\nEt rien, ni dans les cieux, ni sur la terre sauf Dieu ne peut suffir\\nEn verité, il est en lui même celui qui sait, le Soutien\\n\\nl'Omnipotent (x4)",
-                    "author": "The Báb"
-                },
-                {
-                    "title": "Nous ne pouvons pas",
-                    "lyrics": "Nous ne pouvons pas séparer le cœur humain de l'environnement qui nous entoure, en disant que quand l'un deux sera transformé, tout ira mieux.\\n\\nL'homme fait partie intégrante de la structure organique du monde. Sa vie intérieure façonne l'environnement et elle est elle-même profondément influencée par celui-ci.",
-                    "author": "Shoghi Effendi"
-                },
-                {
-                    "title": "Si tu m'aimes",
-                    "lyrics": "Si tu m'aimes, renonce a toi même\\nSi tu cherches mon bon plaisir\\nNe penses pas au tiens\\nAinsi tu mourras en moi\\nEt je vivrais en toi éternellement\\n\\nO Fils de l'Homme",
-                    "author": "Bahá'u'lláh"
-                },
-                {
-                    "title": "Vous devez",
-                    "lyrics": "Je désire pour vous la distinction\\nLes Baha'is doivent se distinguer du reste de l'humanité\\nJe désire pour vous la distinction\\nCe n'est  pas une distinction ordinaire que je désire\\n\\nNi scientifique, ni commericale, ni industrielle que je désire (x2)\\n\\nJe désire pour vous la distinction spirituelle a savoir\\nVous devez être éminents et distingués par les mœrs dans l'amour de Dieu\\n\\nVous devez, vous devez, vous devez, vous devez, vous devez (x3)\\n\\nVous devez, vous devez (distingué de tout autre)\\nVous devez, vous devez (par l'amour de l'humanité)\\nVous devez, vous devez (par l'unité et l'accord)\\nVous devez, vous devez (par l'amour et la justice)",
-                    "author": "'Abdu'l-Bahá"
-                }
-            ]
+          "title": "Blessed is the Spot",
+          "lyrics": "Blessed is the spot, and the house, and the place,\\n\\nAnd the city, and the heart, and the mountain\\n\\nAnd the refuge, and the cave, and the valley, and the land,\\n\\nAnd the sea, and the island, and the meadow\\n\\nWhere mention of God hath been made,\\n\\nAnd His praise glorified.",
+          "author": "Bahá'u'lláh"
         },
         {
-            "language": "ny",
-            "songs": [
-                {
-                    "title": "Kodi Palinso Wina",
-                    "lyrics": "Kodi palinso wina\\nKodi palinso wina\\n\\nWochotsa masawutso kupatula Mulungu!\\n\\nNenani, nenani, nenani",
-                    "author": "The Báb"
-                }
-            ]
+          "title": "God is Faithful",
+          "lyrics": "Remember at all times and in all places\\n\\nThat God is faithful and do not doubt this.\\n\\nBe patient even though great calamities may come upon thee\\n\\nYet, Fear not! Fear not!\\nBe firm in the path of thy Lord;\\n\\nAs a mountain unmoved, un-changing in thy steadfastness (x4)",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "If Thou Lovest Me",
+          "lyrics": "If thou lovest Me turn away from thyself\\nIf thou seekest My pleasure regard not thine own\\nThat Thou mayest die in Me\\nAnd I may eternally live in thee\\n\\nO Son of Man",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "O God Guide Me",
+          "lyrics": "O God, guide me, protect me,\\n\\nIllumine the lamp of my heart and make of me a brilliant star.\\n\\nThou art the Mighty and the Powerful.",
+          "author": "'Abdu'l-Bahá"
+        },
+        {
+          "title": "Pass By",
+          "lyrics": "Pass by whatever exists in this world and find me.\\n\\nI am the Sun of Perception and the Ocean of Science.\\n\\nI revive the withered ones and quicken the dead. I am that Light which illumines the path of Insight.\\n\\nI am the Falcon of the Hand of the Almighty; I bear healing in My wings and teach the knowledge of soaring to the Heaven of Truth.",
+          "author": "'Abdu'l-Bahá"
+        },
+        {
+          "title": "Remember my Days",
+          "lyrics": "Remember my Days during thy days, and My distress and banishment in this remote prison.\\n\\nAnd be thou so steadfast in My love that thy heart shall not waver, even if the swords of the enemies rain blows upon thee and all the heavens and the earth arise against thee",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "Remover of Difficulties",
+          "lyrics": "Is there any Remover of difficulties save God? Say: Praised be God! He is God! All are His servants, and all abide by His bidding! (x3)",
+          "author": "The Báb"
+        },
+        {
+          "title": "Say God Sufficeth",
+          "lyrics": "Say God sufficeth all things above all things,\\nAnd nothing in the heavens or the earth but God sufficeth (x3)\\n\\nVerily He is in Himself\\nthe Knower, the Sustainer, the Omnipotent\\n\\nSay God sufficeth (x4)",
+          "author": "The Báb"
+        },
+        {
+          "title": "The Gate of God",
+          "lyrics": "O thou who art the first to believe in Me! (x4)\\nEighteen souls must, of their own accord, accept Me, accept Me\\nand recognise the truth (the truth), the truth of My Revelation. (x2)\\n\\nVerily I say, I am the Bab, Verily I say, I am the Gate of God (x4)\\n\\nEighteen souls must, of their own accord, accept Me, accept Me\\nVerily I say, I am the Bab, Verily I say, I am the Gate of God (x2)\\n\\nVerily I say, I am the Bab, Verily I say, I am the Gate of God(x2)",
+          "author": "The Báb"
+        },
+        {
+          "title": "Thou Indeed Hast Power",
+          "lyrics": "O my God! I ask Thee, by Thy most glorious Name, to aid me in that which will cause\\n\\nThe affairs of Thy servants to prosper, and Thy cities to flourish.\\n\\nThou, indeed, hast power over all things!",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "Unite and Bind",
+          "lyrics": "Unite and bind together the hearts, join in accord all the souls.\\n\\nOh Lord! Make these faces radiant through the light of Thy oneness.",
+          "author": "'Abdu'l-Bahá"
+        },
+        {
+          "title": "Unite the Hearts",
+          "lyrics": "O my God! O my God! Unite the hearts of Thy servants,\\nand reveal to them Thy great purpose. (x3)\\n\\nMay they follow Thy commandments and abide in Thy law.\\n\\nHelp them, O God, in their endeavor,\\nand grant them strength to serve Thee.",
+          "author": "Bahá'u'lláh"
         }
-    ]
+      ]
+    },
+    {
+      "language": "fr",
+      "songs": [
+        {
+          "title": "Dis Dieu",
+          "lyrics": "Dis Dieu, suffit à tout au délà de tout\\nEt rien, ni dans les cieux, ni sur la terre sauf Dieu ne peut suffir\\nEn verité, il est en lui même celui qui sait, le Soutien\\n\\nl'Omnipotent (x4)",
+          "author": "The Báb"
+        },
+        {
+          "title": "Mirages",
+          "lyrics": "En vérité, je vous le dis, ce monde est semblable à ces mirages du désert que le voyageur assoiffé prend pour de l'eau (x2)\\n\\net que, de tout son pouvoir, il s'efforce d'atteindre, il s'efforce d'atteindre (x2)\\n\\njusqu'au moment où y étant parvenu (x2)\\n\\nIl s'aperçoit que ce n'était que pure illusion. (x2)",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "Mon dieu guide moi",
+          "lyrics": "Mon Dieu, guide-moi, protège-moi, illumine la lampe de mon cœur et fais de moi une étoile brillante. Tu es le Fort, le Puissant. (x2)\\n\\n‘Abdu'l-Bahá (x5)",
+          "author": "'Abdu'l-Bahá"
+        },
+        {
+          "title": "Nous ne pouvons pas séparer",
+          "lyrics": "Nous ne pouvons pas séparer le cœur humain de l'environnement qui nous entoure, en disant que quand l'un deux sera transformé, tout ira mieux. (x2)\\n\\nL'homme fait partie intégrante de la structure organique du monde.\\nSa vie intérieure façonne l'environnement\\net elle est elle-même profondément influencée par celui-ci. (x6)\\n\\nNous ne pouvons pas séparer le cœur humain de l'environnement qui nous entoure, en disant que quand l'un deux sera transformé, tout ira mieux. (x2)",
+          "author": "Shoghi Effendi"
+        },
+        {
+          "title": "O mon ami en parole",
+          "lyrics": "O mon ami en parole (x2)\\nMédites un instant. As-tu jamais entendu dire qu'un seul pouvait accueillir à la fois l'ennemi et l'ami?\\nChasse donc l'étranger (x2)\\nPour que l'ami entre chez lui (x4)",
+          "author": ""
+        },
+        {
+          "title": "O fils de l'homme",
+          "lyrics": "O fils de l'homme\\nSache te contenter de moi\\nEt ne cherche nul autre pour te secourir (x2)\\n\\nCar jamais personne en dehors de moi te suffira (x2)\\n\\nJamais (x4)",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "Ô Seigneur tu dissipes toutes les angoisses",
+          "lyrics": "Ô Seigneur, tu dissipes toutes les angoisses et chasses toutes les afflictions.\\nTu bannis les soucis et libères tous les esclaves, tu es le rédempteur des âmes.\\n\\nÔ Seigneur, par ta miséricorde, délivre-moi et compte-moi au nombre des serviteurs.",
+          "author": "The Báb"
+        },
+        {
+          "title": "Plus nous nous cherchons",
+          "lyrics": "Plus nous nous cherchons, moins nous avons la chance de nous trouver\\n\\nPlus nous cherchons Dieu et servons nos semblables plus profondément nous devenons familiarisés\\n\\nAvec nous-mêmes\\nEt intérieurement rassurés (x4)\\n\\nCeci est l'une des grandes lois spirituelles de la vie (x4)",
+          "author": ""
+        },
+        {
+          "title": "Si l'amour",
+          "lyrics": "Créez un lien que rien ne peut secouer\\nFormez une assemblée que rien ne peut briser\\nAyez un esprit qui ne cesse jamais d'acquérir des richesses indestructibles\\n\\nSi l'amour, si l'amour n'existait pas (x2)\\nQuelle réalité subsisterait? Quelle réalité? (x2)\\n\\nC'est le feu de l'amour de Dieu qui rend l'homme supérieur à l'animal\\nRenforcez cette force supérieure à travers laquelle\\nEst atteint tout le progrès du monde\\nEst atteint tout le progrès du monde\\n\\nCréez un lien que rien ne peut secouer\\nFormez une assemblée que rien ne peut briser\\nAyez un esprit qui ne cesse jamais d'acquérir des richesses indestructibles\\nSi l'amour, si l'amour n'existait pas (x2)\\nQuelle réalité subsisterait? Quelle réalité? (x2)\\n\\nCréez un lien que rien ne peut secouer\\nFormez une assemblée que rien ne peut briser",
+          "author": ""
+        },
+        {
+          "title": "Si tu m'aimes",
+          "lyrics": "Si tu m'aimes, renonce a toi même. Si tu cherches mon bon plaisir, ne penses pas au tiens (x2)\\n\\nAinsi, ainsi, tu mourras en moi et je vivrais en toi éternellement (x2)\\n\\nO Fils de l'Homme (x2)",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "Un jardin de rose",
+          "lyrics": "O mon Dieu\\nDonne moi un coeur qui s'illumine\\nTel le cristal, à la lumière de ton amour\\n\\nAccorde moi des pensées\\nSusceptibles de changer\\nCe monde en un jardin de roses\\nAccorde moi des pensées\\nSusceptibles de changer\\nCe monde en un jardin\\n\\nEn un jardin de roses (x4)",
+          "author": "'Abdu'l-Bahá"
+        },
+        {
+          "title": "Une fontaine d'eau vive",
+          "lyrics": "O mon Seigneur\\nFais de ma prière\\nUne fontaine d'eau vive (x2)\\n\\nQui me permette de vivre tant que durera ta souveraineté et de te mentionner (x4)\\n\\nDans chacun de tes mondes (x4)",
+          "author": "Bahá'u'lláh"
+        },
+        {
+          "title": "Vous devez",
+          "lyrics": "Je désire pour vous la distinction\\nLes Baha'is doivent se distinguer du reste de l'humanité\\nJe désire pour vous la distinction\\nCe n'est pas une distinction ordinaire que je désire\\n\\nNi scientifique, ni commerciale, ni industrielle que je désire (x2)\\n\\nJe désire pour vous la distinction spirituelle à savoir\\n Vous devez être éminents et distingués par les mœurs dans l'amour de Dieu, vous devez\\n\\nVous devez, vous devez (x4)\\n\\nVous devez, vous devez (distingué de tout autre)\\nVous devez, vous devez (par l'amour de l'humanité)\\nVous devez, vous devez (par l'unité et l'accord)\\nVous devez, vous devez (par l'amour et la justice) (x2)\\n\\nNi scientifique, ni commerciale, ni industrielle que je désire (x2)\\n\\nJe désire pour vous la distinction spirituelle à savoir\\nVous devez être éminents et distingués par les mœurs dans l'amour de Dieu, vous devez\\n\\nVous devez, vous devez (x8)",
+          "author": "'Abdu'l-Bahá"
+        }
+      ]
+    },
+    {
+      "language": "ny",
+      "songs": [
+        {
+          "title": "Kodi Palinso Wina",
+          "lyrics": "Kodi palinso wina\\nKodi palinso wina\\n\\nWochotsa masawutso kupatula Mulungu!\\n\\nNenani, nenani, nenani",
+          "author": "The Báb"
+        }
+      ]
+    }
+  ]
 }

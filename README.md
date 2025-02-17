@@ -24,6 +24,6 @@ If you want to request for a song to be added, please [submit a song](https://ba
 
 #### *Note*
 The techstack is plain and simple: HTML, CSS, Bootstrap and 🍦 `js`.<br><br>
-*Please don't bother* submitting a PR where you turn the site into a `react` app or something. The **goal** here is to be **lightweight** 💨.
+*Please don't bother* submitting a PR where you turn the site into a `react` app or something. The **goal** here is to be **lightweight**💨 and **dependency free**.
 
 

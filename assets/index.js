@@ -45,11 +45,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 const panelAnchorArrow = document.createElement("i")
                 panelAnchorArrow.classList.add("bi");
-                if (index === 0) {
-                    panelAnchorArrow.classList.add("bi-chevron-up");
-                } else {
-                    panelAnchorArrow.classList.add("bi-chevron-down");
-                }
+                panelAnchorArrow.classList.add("bi-chevron-up");
 
                 const panelText = document.createTextNode(`${new Intl.DisplayNames(["en"], { type: "language" }).of(val.language)} Songs`);
 
@@ -62,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 const collapsableSection = document.createElement("div");
                 collapsableSection.id = `${val.language}-section`;
                 collapsableSection.classList.add("panel-collapse", "collapse");
-                if (index === 0) collapsableSection.classList.add("show");
+                collapsableSection.classList.add("show");
 
                 const list = document.createElement("ul");
                 list.classList.add("list-group", "pb-1", "list-group-flush");

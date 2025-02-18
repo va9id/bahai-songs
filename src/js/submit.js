@@ -1,4 +1,4 @@
-import { attachValidationEvents, checkFormValidity, sanitizeInput, sendEmail } from "/src/js/form";
+import { attachValidationEvents, checkFormValidity, sanitizeInput, sendEmail } from "/src/js/form.js";
 
 function handleSongFormSubmit(event) {
     event.preventDefault();
@@ -26,7 +26,7 @@ function initSongForm() {
     const form = document.getElementById("song-form");
     if (!form) return;
 
-    const submitButton = document.getElementById("song-from-submit");
+    const submitButton = document.getElementById("song-form-btn");
     attachValidationEvents(form, submitButton);
     form.addEventListener("submit", handleSongFormSubmit);
     checkFormValidity(form, submitButton);

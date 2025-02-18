@@ -190,6 +190,9 @@ async function loadSongContent(language, id) {
         document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
         document.getElementById("song-author").textContent = selectedSong.author;
 
+        const anchorElement = document.querySelector('.song-header a');
+        anchorElement.href = `/src/pages/songs.html#${language}-section`;
+
     } catch (error) {
         console.error(`Error loading song (language=${language}, id=${id}): ${error}`);
         songTitleElement.textContent = "Error loading song/song details.";

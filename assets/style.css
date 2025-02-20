@@ -18,7 +18,6 @@ body {
 footer * {
     background-color: var(--accent-color) !important;
     color: var(--header-footer-text-color) !important;
-    font-weight: lighter;
 }
 
 /*home*/
@@ -52,6 +51,10 @@ footer * {
 /*footer*/
 footer {
     font-size: 0.8em;
+}
+
+footer * {
+    font-weight: lighter;
 }
 
 .bi.bi-github {
@@ -218,6 +221,7 @@ small {
 #random-song-btn {
     background: rgb(110, 132, 108);
     background: linear-gradient(270deg, rgba(110, 132, 108, 1) 0%, rgba(142, 165, 140, 1) 100%);
+    cursor: pointer;
 }
 
 #view-songs-btn:hover,

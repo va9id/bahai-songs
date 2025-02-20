@@ -126,40 +126,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
-// populate contact form language input based on song languages
-document.addEventListener("DOMContentLoaded", async function () {
-    const languageInput = document.getElementById("form-language");
-    if (languageInput) {
-        const songsData = "/src/data/songs.json";
-        try {
-            const response = await fetch(songsData);
-            const data = await response.json();
-
-            data.music.forEach((val) => {
-                const option = document.createElement("option");
-                option.setAttribute("value", `${val.language}`);
-                option.textContent = new Intl.DisplayNames(["en"], { type: "language" }).of(val.language);
-                languageInput.appendChild(option);
-            });
-
-            const option = document.createElement("option");
-            option.setAttribute("value", "new");
-            option.textContent = "New Language";
-            languageInput.appendChild(option);
-
-            const presetOption = document.createElement("option");
-            presetOption.setAttribute("value", "");
-            presetOption.setAttribute("disabled", "");
-            presetOption.setAttribute("selected", "");
-            presetOption.setAttribute("hidden", "");
-            languageInput.insertBefore(presetOption, languageInput.firstChild);
-
-        } catch (error) {
-            console.error("Error fetching languages: ", error);
-        }
-    }
-});
-
 // Load individual song page
 async function loadSongContent(language, id) {
     const songTitleElement = document.getElementById("song-title");

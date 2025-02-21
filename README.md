@@ -22,7 +22,7 @@ If you want to request for a song to be added, please [submit a song](https://ba
 - You can also add a song by updating [`songs.json`](/src/data/songs.json), which has a workflow when updated ensuring the [schema](/src/data/schema.json) is respected. 
 - When adding a song for a new language, ensure the `"language"` key has the correct [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code value.
 
-#### *Note*
+### *Note*
 The techstack is plain and simple: HTML, CSS, Bootstrap and 🍦 `js`.<br><br>
 *Please don't bother* submitting a PR where you turn the site into a `react` app or something. The **goal** here is to be **lightweight**💨 and **dependency free**.
 

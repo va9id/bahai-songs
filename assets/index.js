@@ -155,6 +155,9 @@ async function loadSongContent(language, id) {
         const anchorElement = document.querySelector('.song-header a');
         anchorElement.href = `/src/pages/songs.html#${language}-section`;
 
+        document.title = selectedSong.title;
+        document.querySelector('meta[name="description"]').setAttribute("content", `Listen to ${selectedSong.title}`);
+
     } catch (error) {
         console.error(`Error loading song (language=${language}, id=${id}): ${error}`);
         songTitleElement.textContent = "Error loading song/song details.";

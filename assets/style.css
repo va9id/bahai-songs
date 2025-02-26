@@ -46,6 +46,52 @@ footer * {
     font-weight: bold;
 }
 
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(100%);
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    filter: invert(95%);
+}
+
+/* search bar */
+input[type="search"] {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input[type="search"]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.search-result-list {
+    text-decoration: none;
+}
+
+.search-result-title,
+.search-no-result {
+    color: var(--accent-color-dark);
+}
+
+.search-result-lyrics {
+    color: var(--accent-color);
+}
+
+.search-no-result {
+    width: inherit;
+}
+
+
+/* end search bar */
+
+
 /*end header*/
 
 /*footer*/

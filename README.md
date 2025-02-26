@@ -20,7 +20,9 @@ If you want to request for a song to be added, please [submit a song](https://ba
 
 #### Adding songs programmatically [![Validate Songs JSON Schema](https://github.com/va9id/bahai-songs/actions/workflows/validate-json.yaml/badge.svg)](https://github.com/va9id/bahai-songs/actions/workflows/validate-json.yaml)
 - You can also add a song by updating [`songs.json`](/src/data/songs.json), which has a workflow when updated ensuring the [schema](/src/data/schema.json) is respected. 
-- When adding a song for a new language, ensure the `"language"` key has the correct [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code value.
+- When adding a song for a new language, ensure the `"language"` key has the correct [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code value
+  - The language "*Other*" is used for uncommon languages since all the language codes aren't supported properly across different platforms by the `Intl` API.
+    - For example: the African language "Nyanja" (with ISO 639 code "ny") doesn't have a DisplayName on browsers in Android, but it does on Apple devices. 
 
 ### *Note*
 The techstack is plain and simple: HTML, CSS, Bootstrap and 🍦 `js`.<br><br>

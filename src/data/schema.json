@@ -9,7 +9,7 @@
                 "properties": {
                     "language": {
                         "type": "string",
-                        "description": "The ISO 639 language code of the songs."
+                        "description": "The ISO 639 language code of the songs (or 'Other')"
                     },
                     "songs": {
                         "type": "array",

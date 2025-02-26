@@ -27,27 +27,27 @@ async function languageOptions() {
     const languageInput = document.getElementById("form-language");
     const songsData = "/src/data/songs.json";
     try {
-        const response = await fetch(songsData);
-        const data = await response.json();
-
-        data.music.forEach((val) => {
-            const option = document.createElement("option");
-            option.setAttribute("value", `${val.language}`);
-            option.textContent = new Intl.DisplayNames(["en"], { type: "language" }).of(val.language);
-            languageInput.appendChild(option);
-        });
-
-        const option = document.createElement("option");
-        option.setAttribute("value", "new");
-        option.textContent = "New Language";
-        languageInput.appendChild(option);
 
         const presetOption = document.createElement("option");
         presetOption.setAttribute("value", "");
         presetOption.setAttribute("disabled", "");
         presetOption.setAttribute("selected", "");
         presetOption.setAttribute("hidden", "");
-        languageInput.insertBefore(presetOption, languageInput.firstChild);
+        languageInput.appendChild(presetOption);
+
+        const response = await fetch(songsData);
+        const data = await response.json();
+
+        data.music.forEach((val) => {
+            const option = document.createElement("option");
+            option.setAttribute("value", `${val.language}`);
+            if (val.language === "Other") {
+                option.textContent = `${val.language} (please specify in Message)`
+            } else {
+                option.textContent = new Intl.DisplayNames(["en"], { type: "language" }).of(val.language);
+            }
+            languageInput.appendChild(option);
+        });
 
     } catch (error) {
         console.error("Error fetching languages: ", error);

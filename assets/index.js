@@ -19,12 +19,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             btnGroup.setAttribute("aria-label", "languages of songs");
             btnGroup.id = "lang-btns";
 
-            data.music.forEach((val, index) => {
+            data.music.forEach((val) => {
 
                 const btnGroupElem = document.createElement("a");
                 btnGroupElem.href = `#${val.language}-section-heading`;
                 btnGroupElem.classList.add("px-2");
-                btnGroupElem.textContent = `${new Intl.DisplayNames(["en"], { type: "language" }).of(val.language)}`;
 
                 btnGroup.appendChild(btnGroupElem);
 
@@ -47,7 +46,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                 panelAnchorArrow.classList.add("bi");
                 panelAnchorArrow.classList.add("bi-chevron-up");
 
-                const panelText = document.createTextNode(`${new Intl.DisplayNames(["en"], { type: "language" }).of(val.language)} Songs`);
+                var panelText;
+                if (val.language === "Other") {
+                    btnGroupElem.textContent = val.language;
+                    panelText = document.createTextNode(`${val.language} Songs`);
+                } else {
+                    btnGroupElem.textContent = `${new Intl.DisplayNames(["en"], { type: "language" }).of(val.language)}`;
+                    panelText = document.createTextNode(`${new Intl.DisplayNames(["en"], { type: "language" }).of(val.language)} Songs`);
+                }
 
                 panelAnchor.appendChild(panelAnchorArrow);
                 panelTitle.appendChild(panelText);

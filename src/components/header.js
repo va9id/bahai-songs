@@ -41,18 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.insertAdjacentHTML("afterbegin", headerHTML);
 
 
-    // Add search functionality
     const searchInput = document.getElementById('song-search');
     const searchResults = document.getElementById('search-results');
     let songsData = null;
 
-    // Fetch songs.json
     fetch(`${basePath}src/data/songs.json`)
         .then(response => response.json())
         .then(data => songsData = data)
         .catch(error => console.error('Error loading songs data:', error));
-
-
 
     function cleanText(text) {
         return text
@@ -74,17 +70,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const results = [];
 
-        // Search through all languages and songs
         songsData.music.forEach(languageGroup => {
             const language = languageGroup.language;
 
-            languageGroup.songs.forEach((song, songIndex) => {
-                // Clean lyrics for searching
+            languageGroup.songs.forEach((song, idx) => {
                 const cleanedLyrics = cleanText(song.lyrics).toLowerCase();
 
-                // Check if cleaned lyrics contain the search term
                 if (cleanedLyrics.includes(searchTerm)) {
-                    // Get a snippet of text around the match for preview
                     let startIndex = cleanedLyrics.indexOf(searchTerm);
                     startIndex = Math.max(0, startIndex - 10); // Show 10 chars before match
 
@@ -92,27 +84,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (startIndex > 0) previewText = '...' + previewText;
                     if (startIndex + 30 < cleanedLyrics.length) previewText += '...';
 
-                    results.push({
-                        title: song.title,
-                        language: language,
-                        songIndex: songIndex,
-                        author: song.author,
-                        lyrics: previewText
-                    });
+                    results.push({ title: song.title, language: language, index: idx, author: song.author, lyrics: previewText }
+                    );
                 }
             });
         });
 
-        // Display results
         if (results.length > 0) {
             searchResults.innerHTML = results.map(song => `
-        <div class="search-result-item p-2 border-bottom hover-bg-light">
-          <a class="search-result-list" href="${basePath}src/pages/song.html?lang=${song.language}&id=${song.songIndex}">
-            <strong class="search-result-title">${song.title}</strong>
-            <div class="search-result-lyrics small text-muted">${song.lyrics}</div>
-          </a>
-        </div>
-      `).join('');
+                <div class="search-result-item p-2 border-bottom hover-bg-light">
+                <a class="search-result-list" href="${basePath}src/pages/song.html?lang=${song.language}&id=${song.index}">
+                    <strong class="search-result-title">${song.title}</strong>
+                    <div class="search-result-lyrics small text-muted">${song.lyrics}</div>
+                </a>
+                </div>
+            `).join('');
             searchResults.style.display = 'block';
         } else {
             searchResults.innerHTML = '<div class="search-no-result -p-2">No results found</div>';
@@ -121,8 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     searchInput.addEventListener('input', function () {
-        // Debounce to avoid too many searches
-        clearTimeout(searchInput.debounceTimer);
+        clearTimeout(searchInput.debounceTimer); // Debounce to avoid too many searches
         searchInput.debounceTimer = setTimeout(performSearch, 300);
     });
 

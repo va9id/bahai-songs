@@ -28,6 +28,10 @@
                                     "type": "string",
                                     "description": "The author of the words, if available.",
                                     "default": ""
+                                },
+                                "audio": {
+                                    "type": "string",
+                                    "description": "Name of mp3 file corresponding to song audio"
                                 }
                             },
                             "required": [

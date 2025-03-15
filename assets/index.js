@@ -165,7 +165,7 @@ async function loadSongContent(language, id) {
             audioElement.controls = true;
             audioElement.classList.add("w-100", "px-3", "pb-4", "rounded-3");
             const audioSource = document.createElement("source");
-            audioSource.src = `/src/data/audio/${selectedSong.audio}`;
+            audioSource.src = `/src/data/${selectedSong.audio}`;
             audioSource.type = "audio/mpeg";
             audioElement.appendChild(audioSource);
             document.getElementById("song-container").insertBefore(audioElement, songLyrics);

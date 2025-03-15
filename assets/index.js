@@ -155,8 +155,26 @@ async function loadSongContent(language, id) {
         const selectedSong = category.songs[id];
 
         songTitleElement.textContent = selectedSong.title;
-        document.getElementById("song-lyrics").innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
+        const songLyrics = document.getElementById("song-lyrics");
+        songLyrics.innerHTML = (selectedSong.lyrics || "No lyrics available.").replace(/\\n/g, "<br>");
         document.getElementById("song-author").textContent = selectedSong.author;
+
+        if (selectedSong.audio) {
+            const audioElement = document.createElement("audio");
+            audioElement.id = "audio-player"
+            audioElement.controls = true;
+            audioElement.classList.add("w-100", "px-3", "pb-4", "rounded-3");
+            const audioSource = document.createElement("source");
+            audioSource.src = `/src/data/audio/${selectedSong.audio}`;
+            audioSource.type = "audio/mpeg";
+            audioElement.appendChild(audioSource);
+            document.getElementById("song-container").insertBefore(audioElement, songLyrics);
+        } else {
+            const existingAudioPlayer = document.getElementById("audio-player");
+            if (existingAudioPlayer) {
+                existingAudioPlayer.remove();
+            }
+        }
 
         const anchorElement = document.querySelector('.song-header a');
         anchorElement.href = `/src/pages/songs.html#${language}-section`;

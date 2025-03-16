@@ -160,16 +160,18 @@ async function loadSongContent(language, id) {
         document.getElementById("song-author").textContent = selectedSong.author;
 
         if (selectedSong.audio) {
+            songLyrics.classList.add("pt-3");
             const audioElement = document.createElement("audio");
             audioElement.id = "audio-player"
             audioElement.controls = true;
-            audioElement.classList.add("w-100", "px-3", "pb-4", "rounded-3");
+            audioElement.classList.add("w-100", "px-3");
             const audioSource = document.createElement("source");
-            audioSource.src = `/src/data/${selectedSong.audio}`;
+            audioSource.src = `/src/data/audio/${selectedSong.audio}`;
             audioSource.type = "audio/mpeg";
             audioElement.appendChild(audioSource);
             document.getElementById("song-container").insertBefore(audioElement, songLyrics);
         } else {
+            songLyrics.classList.remove("pt-3")
             const existingAudioPlayer = document.getElementById("audio-player");
             if (existingAudioPlayer) {
                 existingAudioPlayer.remove();

@@ -235,7 +235,9 @@ small {
     font-size: medium;
 }
 
-#legal-email {
+#legal-email,
+#calendar-subscribe,
+#calendar-download {
     color: var(--accent-color) !important;
     font-weight: 400 !important;
 }

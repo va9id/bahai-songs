@@ -32,6 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         <li class="nav-item">
                             <a class="nav-link ${currentPage === 'submit.html' ? 'active' : ''}" href="${basePath}src/pages/submit.html">Submit a Song</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link ${currentPage === 'calendars.html' ? 'active' : ''}" href="${basePath}src/pages/calendars.html">Calendars</a>
+                        </li>
                     </ul>
                 </div>  
             </div>

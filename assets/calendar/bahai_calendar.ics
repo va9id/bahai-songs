@@ -2,7 +2,7 @@ BEGIN:VCALENDAR
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Bahá'í Calendar
+X-WR-CALNAME:Bahá'í Calendar (182 B.E.)
 BEGIN:VEVENT
 UID:20250320-Feast_of_Baha_(Splendour)@customcalendar
 SUMMARY:Feast of Bahá (Splendour)

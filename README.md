@@ -4,7 +4,7 @@
   <img src="assets/imgs/logo.jpeg" alt="Logo" width="200px">
 </p>
 
-This is an initiative to share Bahá'í song lyrics available at [bahaisongs.ca](https://bahaisongs.ca).
+This is an initiative to share Bahá'í song lyrics available at [bahaisongs.ca](https://bahaisongs.ca). As a bonus we also include a [Bahá'í calendar](https://bahaisongs.ca/src/pages/calendar.html) that you can add to your device.
 
 ## Contributing
 

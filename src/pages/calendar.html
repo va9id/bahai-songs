@@ -1,61 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bahá'í Calendar</title>
-    <meta name="description" content="Bahá'í Calendar ics">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="/assets/icons/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/src/components/header.js"></script>
-    <script src="/src/components/footer.js"></script>
-    <link rel="stylesheet" href="/assets/style.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXC9T3QC04"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-TXC9T3QC04');
-    </script>
-</head>
-<body class="d-flex flex-column">
-    <div id="about-container" class="container flex-grow-1 pb-5 px-4"> 
-        <h1 class="page-title">Calendars</h1>
-        A Bahá'í Calendar containing all the 19-day Feasts, Holy Days, and other significant dates ready to be added to your Apple, Google, or Outlook calendars. To add the Bahá'í calendar to your calendar refer to the instructions below.
-        <h2 class="pb-2 pt-2">Subscribe</h2>
-        Subscribe to the calendar to automatically receive future updates, such as new dates for the next year. Instructions to subscribe through different calendar apps are provided below. 
-        <h4 class="pb-1 pt-2">Apple Calendar</h4>
-        <ol class="list-group list-group-numbered list-group-flush">
-            <li class="list-group-item">Open the <b>Calendar</b> app on your iPhone, iPad, or Mac.</li>
-            <li class="list-group-item">Go to <i><b>Calendars</b> → <b>Add Calendar</b> → <b>Add Subscription Calendar</b></i> (on Mac: <i>File → New Calendar Subscription</i>)</li>
-            <li class="list-group-item">Copy and paste the following <b>Subscription URL</b>: <a id="calendar-subscribe" class="text-break" href="https://bahaisongs.ca/assets/calendar/bahai_calendar.ics">https://bahaisongs.ca/assets/calendar/bahai_calendar.ics</a></li>
-        </ol>
-        <h4 class="pb-1 pt-2">Google Calendar</h4>
-        <ol class="list-group list-group-numbered list-group-flush">
-            <li class="list-group-item">Open <b>Google Calendar</b> on your device.</li>
-            <li class="list-group-item">Go to <i><b>Other Calendars</b> → <b>Add other calendar</b></i> (<b>+</b>)</b> → <i><b>From URL</b></i></li>
-            <li class="list-group-item">Copy and paste the following <b>URL</b>: <a id="calendar-subscribe" class="text-break" href="https://bahaisongs.ca/assets/calendar/bahai_calendar.ics">https://bahaisongs.ca/assets/calendar/bahai_calendar.ics</a></li>
-        </ol>
-        <h4 class="pb-1 pt-2">Outlook Calendar</h4>
-        <ol class="list-group list-group-numbered list-group-flush">
-            <li class="list-group-item">Open <b>Outlook</b> on your device.</li>
-            <li class="list-group-item">Go to <i><b>Calendar</b> → <b>Add Calendar</b> → <b>Subcribe from web</b></i></li>
-            <li class="list-group-item">Copy and paste the following <b>URL</b>: <a id="calendar-subscribe" class="text-break" href="https://bahaisongs.ca/assets/calendar/bahai_calendar.ics">https://bahaisongs.ca/assets/calendar/bahai_calendar.ics</a></li>
-        </ol>
-        <h2 class="pb-2 pt-3">Download</h2>
-        The second option is to manually download the <code>.ics</code> calendar file below and upload it to your calendar app:
-        <ul class="list-group list-group-flush pt-2 pb-2">
-          <li class="list-group-item list-group-item-action"><a id="calendar-download" href="/assets/calendar/bahai_calendar.ics">bahai_calendar.ics</a></li>
-        </ul>
-        This is <i><b>not the preferred method</b></i> as it will not automatically update the calendar events when changed, whereas subscribing will.
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bahá'í Calendar</title>
+		<meta name="description" content="Bahá'í Calendar ics" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
+		<link
+			rel="shortcut icon"
+			href="/assets/icons/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/assets/icons/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/assets/icons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/assets/icons/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/assets/icons/site.webmanifest" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="/src/components/header.js"></script>
+		<script src="/src/components/footer.js"></script>
+		<link rel="stylesheet" href="/assets/style.css" />
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-TXC9T3QC04"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-TXC9T3QC04");
+		</script>
+	</head>
+	<body class="d-flex flex-column">
+		<div id="about-container" class="container flex-grow-1 pb-5 px-4">
+			<h1 class="page-title">Calendars</h1>
+			A Bahá'í Calendar containing all the 19-day Feasts, Holy Days, and
+			other significant dates ready to be added to your Apple, Google, or
+			Outlook calendars. To add the Bahá'í calendar to your calendar refer
+			to the instructions below.
+			<h2 class="pb-2 pt-2">Subscribe</h2>
+			Subscribe to the calendar through the following link to
+			automatically receive any future updates, such as new dates for the
+			next year:
+			<ul class="list-group list-group-flush pt-2 pb-2">
+				<li class="list-group-item list-group-item-action">
+					<a
+						id="calendar-subscribe"
+						class="text-break"
+						href="webcal://bahaisongs.ca/assets/calendar/bahai_calendar.ics"
+						>webcal://bahaisongs.ca/assets/calendar/bahai_calendar.ics</a
+					>
+				</li>
+			</ul>
+			<h2 class="pb-2 pt-3">Download</h2>
+			Manually download the
+			<code>.ics</code> calendar file below and upload it to your calendar
+			app:
+			<ul class="list-group list-group-flush pt-2 pb-2">
+				<li class="list-group-item list-group-item-action">
+					<a
+						id="calendar-download"
+						href="/assets/calendar/bahai_calendar.ics"
+						>bahai_calendar.ics</a
+					>
+				</li>
+			</ul>
+			This method will
+			<i
+				><b
+					>not automatically update the calendar events when
+					changed</b
+				></i
+			>, whereas subscribing will.
+		</div>
+	</body>
 </html>

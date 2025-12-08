@@ -1,216 +1,214 @@
 :root {
-    --accent-color: #8EA58C;
-    --accent-color-dark: #3D4F3B;
-    --header-footer-text-color: #FFFFF0;
-    --page-heading-margin-top: 20px;
+	--accent-color: #8ea58c;
+	--accent-color-dark: #3d4f3b;
+	--header-footer-text-color: #fffff0;
+	--page-heading-margin-top: 20px;
 }
 
 html {
-    height: 100%;
+	height: 100%;
 }
 
 body {
-    height: 100%;
+	height: 100%;
 }
 
 .navbar,
 .nav-link,
 footer * {
-    background-color: var(--accent-color) !important;
-    color: var(--header-footer-text-color) !important;
+	background-color: var(--accent-color) !important;
+	color: var(--header-footer-text-color) !important;
 }
 
 /*home*/
 .home-container {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: fit-content;
-    margin-top: 56px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: fit-content;
+	margin-top: 56px;
 }
 
-.home-container>h1 {
-    font-weight: bolder;
+.home-container > h1 {
+	font-weight: bolder;
 }
 
 #logo {
-    width: 50%;
-    max-width: 400px;
-    min-width: 300px;
+	width: 50%;
+	max-width: 400px;
+	min-width: 300px;
 }
 
 /*end home*/
 
 /*header*/
 .nav-link.active {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .navbar-toggler {
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	outline: none !important;
 }
 
 .navbar-toggler-icon {
-    filter: invert(100%);
+	filter: invert(100%);
 }
 
 .navbar-toggler:hover .navbar-toggler-icon {
-    filter: invert(95%);
+	filter: invert(95%);
 }
 
 /* search bar */
 input[type="search"] {
-    outline: none !important;
-    box-shadow: none !important;
+	outline: none !important;
+	box-shadow: none !important;
 }
 
 input[type="search"]:focus {
-    outline: none !important;
-    box-shadow: none !important;
+	outline: none !important;
+	box-shadow: none !important;
 }
 
 .search-result-list {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .search-result-title,
 .search-no-result {
-    color: var(--accent-color-dark);
+	color: var(--accent-color-dark);
 }
 
 .search-result-lyrics {
-    color: var(--accent-color);
+	color: var(--accent-color);
 }
 
 .search-no-result {
-    width: inherit;
+	width: inherit;
 }
 
-
 /* end search bar */
-
 
 /*end header*/
 
 /*footer*/
 footer {
-    font-size: 0.8em;
+	font-size: 0.8em;
 }
 
 footer * {
-    font-weight: lighter;
+	font-weight: lighter;
 }
 
 .bi.bi-github {
-    font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 #about,
 #legal {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 /*end footer*/
 
 /*song*/
 .song-header a {
-    color: var(--accent-color);
-    text-decoration: none !important;
+	color: var(--accent-color);
+	text-decoration: none !important;
 }
 
 .song-header h2 {
-    display: inline-block;
-    margin-top: var(--page-heading-margin-top);
+	display: inline-block;
+	margin-top: var(--page-heading-margin-top);
 }
 
 .song-header i {
-    font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 #song-title {
-    color: var(--accent-color-dark);
+	color: var(--accent-color-dark);
 }
 
 #song-author {
-    color: var(--accent-color);
+	color: var(--accent-color);
 }
 
 #song-lyrics {
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
-span.song-header>#random-song-btn {
-    background: none;
-    font-size: 1em;
-    color: var(--accent-color);
-    transition: color 0.2s ease-in-out;
+span.song-header > #random-song-btn {
+	background: none;
+	font-size: 1em;
+	color: var(--accent-color);
+	transition: color 0.2s ease-in-out;
 }
 
-span.song-header>#random-song-btn:hover {
-    color: var(--accent-color-dark);
+span.song-header > #random-song-btn:hover {
+	color: var(--accent-color-dark);
 }
 
 /*end song*/
 
 /*songs*/
 .panel-title a {
-    color: inherit;
-    text-decoration: none !important;
+	color: inherit;
+	text-decoration: none !important;
 }
 
 .panel-title i {
-    color: var(--accent-color);
-    text-decoration: none !important;
-    font-size: 0.7em;
-    padding-left: 0.5em;
+	color: var(--accent-color);
+	text-decoration: none !important;
+	font-size: 0.7em;
+	padding-left: 0.5em;
 }
 
-#panel-group>.panel:last-of-type {
-    padding-bottom: 10%;
+#panel-group > .panel:last-of-type {
+	padding-bottom: 10%;
 }
 
 .list-group-item a {
-    text-decoration: none;
-    color: var(--accent-color-dark);
+	text-decoration: none;
+	color: var(--accent-color-dark);
 }
 
 #cant-find a {
-    color: inherit;
+	color: inherit;
 }
 
 #lang-btns {
-    flex-wrap: wrap;
-    justify-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-#lang-btns>a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-    font-weight: 350;
+#lang-btns > a {
+	color: var(--accent-color);
+	text-decoration: none;
+	transition: color 0.2s ease-in-out;
+	font-weight: 350;
 }
 
-#lang-btns>a:hover {
-    color: var(--accent-color-dark);
+#lang-btns > a:hover {
+	color: var(--accent-color-dark);
 }
 
 /*end songs*/
 
 /*forms*/
 #optional {
-    font-size: x-small;
+	font-size: x-small;
 }
 
 #form-container {
-    max-height: fit-content;
+	max-height: fit-content;
 }
 
 #form-song-lyrics,
 #contact-form-msg {
-    height: 100px;
+	height: 100px;
 }
 
 /*end form*/
@@ -218,28 +216,28 @@ span.song-header>#random-song-btn:hover {
 /*about & legal*/
 #about-container,
 #legal-container {
-    display: block;
+	display: block;
 }
 
 #about-container a,
 #legal-container a {
-    color: var(--accent-color-dark);
-    font-weight: bold;
+	color: var(--accent-color-dark);
+	font-weight: bold;
 }
 
 code {
-    color: var(--accent-color);
+	color: var(--accent-color);
 }
 
 small {
-    font-size: medium;
+	font-size: medium;
 }
 
 #legal-email,
 #calendar-subscribe,
 #calendar-download {
-    color: var(--accent-color) !important;
-    font-weight: 400 !important;
+	color: var(--accent-color) !important;
+	font-weight: 400 !important;
 }
 
 /*end about & legal*/
@@ -247,50 +245,57 @@ small {
 /*buttons*/
 #song-form-btn,
 #contact-form-btn {
-    background-color: var(--accent-color);
-    border: none;
-    transition: background-color 0.25s ease-in-out;
+	background-color: var(--accent-color);
+	border: none;
+	transition: background-color 0.25s ease-in-out;
 }
 
 #view-songs-btn,
 #random-song-btn {
-    border: none;
-    font-weight: 450;
-    transition: opacity 0.25s ease-in-out;
+	border: none;
+	font-weight: 450;
+	transition: opacity 0.25s ease-in-out;
 }
 
 #view-songs-btn {
-    background: rgb(110, 132, 108);
-    background: linear-gradient(90deg, rgba(110, 132, 108, 1) 0%, rgba(142, 165, 140, 1) 100%);
+	background: rgb(110, 132, 108);
+	background: linear-gradient(
+		90deg,
+		rgba(110, 132, 108, 1) 0%,
+		rgba(142, 165, 140, 1) 100%
+	);
 }
 
 #random-song-btn {
-    background: rgb(110, 132, 108);
-    background: linear-gradient(270deg, rgba(110, 132, 108, 1) 0%, rgba(142, 165, 140, 1) 100%);
-    cursor: pointer;
+	background: rgb(110, 132, 108);
+	background: linear-gradient(
+		270deg,
+		rgba(110, 132, 108, 1) 0%,
+		rgba(142, 165, 140, 1) 100%
+	);
+	cursor: pointer;
 }
 
 #view-songs-btn:hover,
 #random-song-btn:hover {
-    opacity: 80%;
+	opacity: 80%;
 }
-
 
 #song-form-btn:hover,
 #contact-form-btn:hover {
-    background-color: var(--accent-color-dark);
+	background-color: var(--accent-color-dark);
 }
 
 /*end buttons*/
 
 /*other*/
 h1 {
-    color: var(--accent-color-dark);
-    margin-top: var(--page-heading-margin-top);
+	color: var(--accent-color-dark);
+	margin-top: var(--page-heading-margin-top);
 }
 
 h2.page-title {
-    margin-top: var(--page-heading-margin-top);
+	margin-top: var(--page-heading-margin-top);
 }
 
 /*end other*/

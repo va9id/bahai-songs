@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const footerHTML = `
+	const footerHTML = `
       <footer class="bg-body-tertiary text-center text-start mt-auto">
         <div id="footer" class="text-center p-2">
           <a id="about" href="/src/pages/about.html">About</a> - 
@@ -12,6 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </footer>
     `;
-  document.body.insertAdjacentHTML("beforeend", footerHTML);
+	document.body.insertAdjacentHTML("beforeend", footerHTML);
 });
-

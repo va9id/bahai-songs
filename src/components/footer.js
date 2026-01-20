@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <a id="about" href="/src/pages/contact.html">Contact</a> - 
           <a id="legal" href="/src/pages/legal.html">Legal</a> - 
           <a class="mx-1" href="https://github.com/va9id/bahai-songs" target="_blank"><i class="bi bi-github"></i></a>
-          <div>© 2025 Copyright
+          <div>© 2025-2026  Copyright
             <a href="#">bahaisongs.ca</a>
           </div>
         </div>

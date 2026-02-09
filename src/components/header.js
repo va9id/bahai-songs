@@ -38,11 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ${
-								currentPage === "submit.html" ? "active" : ""
-							}" href="${basePath}src/pages/submit.html">Submit a Song</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ${
 								currentPage === "calendar.html" ? "active" : ""
 							}" href="${basePath}src/pages/calendar.html">Calendar</a>
                         </li>
@@ -96,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 					let previewText = cleanedLyrics.substring(
 						startIndex,
-						startIndex + 40
+						startIndex + 40,
 					); // Show 10 chars before and 20 after
 					if (startIndex > 0) previewText = "..." + previewText;
 					if (startIndex + 30 < cleanedLyrics.length)
@@ -123,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="search-result-lyrics small text-muted">${song.lyrics}</div>
                 </a>
                 </div>
-            `
+            `,
 				)
 				.join("");
 			searchResults.style.display = "block";

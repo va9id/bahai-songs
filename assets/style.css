@@ -175,10 +175,6 @@ span.song-header > #random-song-btn:hover {
 	color: var(--accent-color-dark);
 }
 
-#cant-find a {
-	color: inherit;
-}
-
 #lang-btns {
 	flex-wrap: wrap;
 	justify-content: center;

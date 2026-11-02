@@ -1,0 +1,521 @@
+/* ==========================================================================
+   Bahá'í Songs — mobile-first, no frameworks, no web fonts.
+   Written against the semantic markup hooks in the HTML and src/js.
+   ========================================================================== */
+
+/* --------------------------------------------------------------- tokens --- */
+
+:root {
+	/* Palette carried over from the original stylesheet. */
+	--color-accent: #8ea58c;
+	--color-accent-dark: #3d4f3b;
+	--color-on-accent: #fffff0;
+
+	--color-text: #2b2b2b;
+	--color-muted: #6b7a69;
+	--color-bg: #ffffff;
+	--color-surface: #ffffff;
+	--color-border: #e2e6e1;
+
+	--font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+		Arial, sans-serif;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2rem;
+	--space-7: 3rem;
+
+	--radius: 0.5rem;
+	--shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+	--content-width: 48rem;
+
+	/* Keeps hash-linked sections clear of the sticky header. */
+	--header-height: 7.5rem;
+}
+
+/* ---------------------------------------------------------------- reset --- */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-family: var(--font-body);
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+	color: var(--color-accent-dark);
+	background-color: #f1f4f0;
+	padding: 0.1em 0.35em;
+	border-radius: 0.25rem;
+}
+
+small {
+	font-size: 0.85em;
+	font-weight: 400;
+	color: var(--color-muted);
+}
+
+/* Visible keyboard focus everywhere, since nothing else provides it. */
+:focus-visible {
+	outline: 2px solid var(--color-accent-dark);
+	outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------- layout --- */
+
+main {
+	flex: 1;
+	width: 100%;
+	max-width: var(--content-width);
+	margin: 0 auto;
+	padding: var(--space-5) var(--space-4) var(--space-7);
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.25;
+	color: var(--color-accent-dark);
+	margin: var(--space-6) 0 var(--space-3);
+}
+
+h1 {
+	font-size: 1.75rem;
+	margin-top: var(--space-4);
+}
+
+h2 {
+	font-size: 1.35rem;
+}
+
+h3 {
+	font-size: 1.1rem;
+}
+
+@media (min-width: 40em) {
+	h1 {
+		font-size: 2.25rem;
+	}
+
+	h2 {
+		font-size: 1.6rem;
+	}
+}
+
+/* --------------------------------------------------------------- header --- */
+
+#site-header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background-color: var(--color-accent);
+	color: var(--color-on-accent);
+	padding: var(--space-3) var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+#site-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-4);
+}
+
+#site-nav a {
+	color: var(--color-on-accent);
+	text-decoration: none;
+	padding: var(--space-1) 0;
+	border-bottom: 2px solid transparent;
+}
+
+#site-nav a:hover {
+	border-bottom-color: var(--color-on-accent);
+}
+
+#site-nav a[aria-current="page"] {
+	font-weight: 700;
+	border-bottom-color: var(--color-on-accent);
+}
+
+@media (min-width: 40em) {
+	#site-header {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-5);
+	}
+
+	:root {
+		--header-height: 4rem;
+	}
+}
+
+/* --------------------------------------------------------------- search --- */
+
+#site-search {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+@media (min-width: 40em) {
+	#site-search {
+		max-width: 22rem;
+	}
+}
+
+/* The label stays for screen readers; the placeholder carries the visual cue. */
+#site-search label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+#song-search {
+	width: 100%;
+	font: inherit;
+	padding: var(--space-2) var(--space-3);
+	border: none;
+	border-radius: var(--radius);
+	background-color: var(--color-surface);
+	color: var(--color-text);
+}
+
+#song-search::placeholder {
+	color: var(--color-muted);
+}
+
+#search-results {
+	position: absolute;
+	top: calc(100% + var(--space-1));
+	left: 0;
+	width: 100%;
+	max-height: 60vh;
+	overflow-y: auto;
+	z-index: 20;
+	background-color: var(--color-surface);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	padding: var(--space-2);
+}
+
+.search-results-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.search-results-list li + li {
+	border-top: 1px solid var(--color-border);
+}
+
+.search-results-list a {
+	display: block;
+	padding: var(--space-2);
+	text-decoration: none;
+	border-radius: 0.25rem;
+}
+
+.search-results-list a:hover {
+	background-color: #f1f4f0;
+}
+
+.search-result-title {
+	display: block;
+	color: var(--color-accent-dark);
+}
+
+.search-result-lyrics {
+	display: block;
+	font-size: 0.85rem;
+	color: var(--color-muted);
+}
+
+/* The matched words inside the preview. */
+.search-result-lyrics mark {
+	background-color: #dde6dc;
+	color: var(--color-accent-dark);
+	border-radius: 0.125rem;
+}
+
+.search-no-results {
+	margin: 0;
+	padding: var(--space-2);
+	font-size: 0.9rem;
+	color: var(--color-muted);
+}
+
+/* ----------------------------------------------------------------- home --- */
+
+#home {
+	text-align: center;
+}
+
+#home-description {
+	max-width: 48rem;
+	margin: 0 auto var(--space-5);
+}
+
+/* ------------------------------------------------------------ song list --- */
+
+#language-nav ul {
+	list-style: none;
+	margin: 0 0 var(--space-5);
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--space-2) var(--space-4);
+}
+
+#language-nav a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: color 0.2s ease-in-out;
+}
+
+#language-nav a:hover {
+	color: var(--color-accent-dark);
+}
+
+/* Sections are separated by spacing alone -- no rule between the headers. */
+.language-section {
+	margin-bottom: var(--space-5);
+	text-align: left;
+	scroll-margin-top: var(--header-height);
+}
+
+.language-section > summary {
+	cursor: pointer;
+	font-size: 1.35rem;
+	font-weight: 600;
+	color: var(--color-accent-dark);
+	padding: var(--space-2) 0;
+}
+
+.language-section > summary::marker {
+	color: var(--color-accent);
+}
+
+.song-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Dividers between songs only -- never directly under the language header. */
+.song-list li + li {
+	border-top: 1px solid var(--color-border);
+}
+
+.song-list a {
+	display: block;
+	padding: var(--space-3) var(--space-2);
+	color: var(--color-accent-dark);
+	text-decoration: none;
+}
+
+.song-list a:hover {
+	background-color: #f1f4f0;
+}
+
+/* ------------------------------------------------------------ song page --- */
+
+/* Breadcrumb left, random-song control pinned to the top right. */
+#song-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--space-3);
+}
+
+#song-breadcrumb {
+	margin: 0;
+}
+
+#back-to-songs,
+#random-song-btn {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+#back-to-songs:hover,
+#random-song-btn:hover {
+	color: var(--color-accent-dark);
+}
+
+/* Picking a song is an action, but it reads as a plain link beside the
+   breadcrumb rather than as a button. */
+#random-song-btn {
+	font: inherit;
+	background: none;
+	border: none;
+	padding: 0;
+	white-space: nowrap;
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+#song-title {
+	margin-top: var(--space-2);
+}
+
+#song-audio {
+	width: 100%;
+	margin: var(--space-4) 0;
+}
+
+#song-lyrics {
+	font-size: 1.05rem;
+	line-height: 1.8;
+	margin: var(--space-5) 0;
+	/* Keep the line breaks and blank lines stored in the lyrics. */
+	white-space: pre-wrap;
+	/* Lyrics are short lines; don't let them stretch across a wide screen. */
+	max-width: 36rem;
+}
+
+#song-author {
+	color: var(--color-muted);
+	font-style: italic;
+	text-align: right;
+	margin: 0;
+}
+
+/* ------------------------------------------------ about / calendar --- */
+
+#about a,
+#calendar a {
+	color: var(--color-accent-dark);
+	font-weight: 600;
+}
+
+/* Matched as `a#id` so these tie with `#calendar a` above and win on order. */
+a#calendar-subscribe,
+a#calendar-download {
+	font-weight: 400;
+	word-break: break-word;
+}
+
+#calendar ul,
+#about ul {
+	padding-left: var(--space-5);
+}
+
+#calendar li,
+#about li {
+	margin-bottom: var(--space-2);
+}
+
+/* --------------------------------------------------------------- footer --- */
+
+#site-footer {
+	margin-top: auto;
+	background-color: var(--color-accent);
+	color: var(--color-on-accent);
+	font-size: 0.85rem;
+	text-align: center;
+	padding: var(--space-4);
+}
+
+#site-footer nav ul {
+	list-style: none;
+	margin: 0 0 var(--space-2);
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	/* The row gap only matters once the links wrap; the column gap is the
+	   space after the hyphen separator, so it stays tight. */
+	gap: var(--space-2) var(--space-1);
+}
+
+/* A hyphen between the footer links, spaced like the surrounding words. The
+   second `content` blanks out the alt text so screen readers don't announce
+   it; the first is the fallback for browsers without that syntax. */
+#site-footer nav li:not(:last-child)::after {
+	content: "-";
+	content: "-" / "";
+	margin-left: var(--space-1);
+}
+
+#site-footer a {
+	color: var(--color-on-accent);
+	text-decoration: none;
+}
+
+#site-footer a:hover {
+	text-decoration: underline;
+}
+
+#site-footer p {
+	margin: 0;
+	font-weight: 300;
+}
+
+/* ------------------------------------------------------------- noscript --- */
+
+/* Only ever rendered when scripting is unavailable, in place of the content
+   that would have been built by src/js. */
+.noscript-notice {
+	max-width: 36rem;
+	margin: var(--space-5) auto;
+	padding: var(--space-4);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	background-color: #f1f4f0;
+	text-align: left;
+}
+
+.noscript-notice a {
+	color: var(--color-accent-dark);
+	font-weight: 600;
+}
+
+/* ------------------------------------------------------------ a11y prefs --- */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

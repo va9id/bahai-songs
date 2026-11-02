@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Bahá'í Songs</title>
+		<meta name="description" content="Bahá'í song lyrics" />
+
+		<link rel="icon" href="/assets/icons/favicon.ico" sizes="any" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/assets/icons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/assets/icons/favicon-16x16.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/assets/icons/apple-touch-icon.png"
+		/>
+		<link rel="manifest" href="/assets/icons/site.webmanifest" />
+
+		<link rel="stylesheet" href="/assets/css/style.css" />
+
+		<!-- With scripting off neither the search box nor the random-song
+		     button can do anything, so hide them rather than leave dead
+		     controls. -->
+		<noscript>
+			<style>
+				#site-search,
+				#random-song-btn {
+					display: none;
+				}
+			</style>
+		</noscript>
+
+		<script type="module" src="/assets/js/search.js"></script>
+		<script type="module" src="/assets/js/song.js"></script>
+
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-TXC9T3QC04"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-TXC9T3QC04");
+		</script>
+	</head>
+	<body>
+
+		<header id="site-header">
+			<nav id="site-nav" aria-label="Main">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li>
+						<a href="/calendar.html">Calendar</a>
+					</li>
+				</ul>
+			</nav>
+
+			<search id="site-search">
+				<form role="search" autocomplete="off">
+					<label for="song-search">Search songs</label>
+					<input
+						type="search"
+						id="song-search"
+						name="q"
+						placeholder="Search lyrics"
+					/>
+				</form>
+				<div id="search-results" hidden></div>
+			</search>
+		</header>
+
+		<main id="song">
+			<div id="song-header">
+				<p id="song-breadcrumb">
+					<a id="back-to-songs" href="/"
+						>&larr; All songs</a
+					>
+				</p>
+				<button id="random-song-btn" type="button">Random</button>
+			</div>
+			<noscript>
+				<p class="noscript-notice">
+					Song lyrics need JavaScript to load. The
+					<a href="/about.html">About</a> and
+					<a href="/calendar.html">Calendar</a> pages work
+					without it.
+				</p>
+			</noscript>
+			<h1 id="song-title"></h1>
+			<audio id="song-audio" controls hidden></audio>
+			<p id="song-lyrics"></p>
+			<p id="song-author"></p>
+		</main>
+
+		<footer id="site-footer">
+			<nav aria-label="Secondary">
+				<ul>
+					<li><a href="/about.html">About</a></li>
+					<li>
+						<a
+							href="https://github.com/va9id/bahai-songs"
+							target="_blank"
+							rel="noopener"
+							>GitHub</a
+						>
+					</li>
+				</ul>
+			</nav>
+			<p>&copy; 2025&ndash;2026 bahaisongs.ca</p>
+		</footer>
+	</body>
+</html>

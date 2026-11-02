@@ -22,7 +22,7 @@
                                 },
                                 "lyrics": {
                                     "type": "string",
-                                    "description": "The lyrics of the song, with '\\n' used for line breaks."
+                                    "description": "The lyrics of the song. Lines are separated by a real line break, written as \\n in this file (not \\\\n); a blank line separates verses."
                                 },
                                 "author": {
                                     "type": "string",

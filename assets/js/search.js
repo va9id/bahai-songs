@@ -14,19 +14,16 @@ const WHITESPACE = /\s/;
 const COMBINING_MARKS = /[̀-ͯ]/g;
 const NOT_SEARCHABLE = /[^\p{L}\p{N}]/gu;
 
-// How much of the surrounding lyrics to show either side of a hit.
 const PREVIEW_BEFORE = 24;
 const PREVIEW_AFTER = 40;
 
-// Drops the accent and lowercases, so "á" and "a" count as the same letter.
 function fold(character) {
-	return character.normalize("NFD").replace(COMBINING_MARKS, "").toLowerCase();
+	return character
+		.normalize("NFD")
+		.replace(COMBINING_MARKS, "")
+		.toLowerCase();
 }
 
-// Builds the text we actually search against: accents and punctuation gone,
-// runs of whitespace collapsed to one space. `origin` maps every character of
-// the result back to its index in the untouched text, so a hit can still be
-// shown in the original spelling.
 function searchable(text) {
 	let normalized = "";
 	const origin = [];
@@ -34,14 +31,12 @@ function searchable(text) {
 
 	for (let i = 0; i < text.length; i++) {
 		if (WHITESPACE.test(text[i])) {
-			// Line breaks and runs of spaces become a single space; leading
-			// whitespace is dropped entirely.
+			// Line breaks and runs of spaces become a single space, leaindg whitespace is dropped entirely.
 			pendingSpace = normalized.length > 0;
 			continue;
 		}
 
-		// Punctuation carries no weight, so "Bahá'u'lláh", "baha'u'llah" and
-		// "bahaullah" all find each other.
+		// Punctuation carries no weight
 		const letters = fold(text[i]).replace(NOT_SEARCHABLE, "");
 		if (letters === "") {
 			continue;
@@ -62,7 +57,6 @@ function searchable(text) {
 	return { normalized, origin };
 }
 
-// Normalising every song on every keystroke would be wasted work.
 const searchIndexes = new WeakMap();
 
 function searchIndex(song) {
@@ -74,8 +68,6 @@ function searchIndex(song) {
 	return index;
 }
 
-// A snippet of the original lyrics around the match, so the hit has some
-// context. Split in three parts so the match itself can be highlighted.
 function preview(lyrics, origin, matchStart, matchLength) {
 	const from = origin[matchStart];
 	const to = origin[matchStart + matchLength - 1] + 1;
@@ -173,8 +165,6 @@ function renderResults(results) {
 }
 
 function performSearch() {
-	// The query goes through the same folding as the lyrics, so the two can be
-	// compared character for character.
 	const searchTerm = searchable(searchInput.value).normalized;
 
 	if (!searchTerm || !songsData) {
@@ -187,7 +177,7 @@ function performSearch() {
 }
 
 searchInput.addEventListener("input", function () {
-	clearTimeout(debounceTimer); // Debounce to avoid searching on every keystroke
+	clearTimeout(debounceTimer);
 	debounceTimer = setTimeout(performSearch, 300);
 });
 

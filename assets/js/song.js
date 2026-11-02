@@ -18,8 +18,6 @@ function showNotFound() {
 	lyricsElement.textContent = "";
 	authorElement.textContent = "";
 	audioElement.hidden = true;
-	// The random-song button swaps songs in place, so the tab would otherwise
-	// keep naming the song we came from.
 	document.title = "Song not found";
 }
 
@@ -41,7 +39,6 @@ async function renderSong(titleFromUrl) {
 
 	titleElement.textContent = song.title;
 
-	// Lyrics hold real line breaks; `white-space: pre-wrap` renders them.
 	lyricsElement.textContent = song.lyrics || "No lyrics available.";
 
 	if (language === "Other") {
@@ -79,7 +76,6 @@ async function renderFromUrl() {
 	}
 }
 
-// Swap the song in place rather than reloading the whole page.
 randomSongBtn.addEventListener("click", async function () {
 	try {
 		const next = await randomSong();

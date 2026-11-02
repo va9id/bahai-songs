@@ -1,12 +1,4 @@
-/* ==========================================================================
-   Bahá'í Songs — mobile-first, no frameworks, no web fonts.
-   Written against the semantic markup hooks in the HTML and src/js.
-   ========================================================================== */
-
-/* --------------------------------------------------------------- tokens --- */
-
 :root {
-	/* Palette carried over from the original stylesheet. */
 	--color-accent: #8ea58c;
 	--color-accent-dark: #3d4f3b;
 	--color-on-accent: #fffff0;
@@ -17,8 +9,9 @@
 	--color-surface: #ffffff;
 	--color-border: #e2e6e1;
 
-	--font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
-		Arial, sans-serif;
+	--font-body:
+		system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+		sans-serif;
 	--font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
 	--space-1: 0.25rem;
@@ -37,8 +30,6 @@
 	/* Keeps hash-linked sections clear of the sticky header. */
 	--header-height: 7.5rem;
 }
-
-/* ---------------------------------------------------------------- reset --- */
 
 *,
 *::before,
@@ -82,7 +73,6 @@ small {
 	color: var(--color-muted);
 }
 
-/* Visible keyboard focus everywhere, since nothing else provides it. */
 :focus-visible {
 	outline: 2px solid var(--color-accent-dark);
 	outline-offset: 2px;
@@ -195,7 +185,6 @@ h3 {
 	}
 }
 
-/* The label stays for screen readers; the placeholder carries the visual cue. */
 #site-search label {
 	position: absolute;
 	width: 1px;
@@ -314,7 +303,6 @@ h3 {
 	color: var(--color-accent-dark);
 }
 
-/* Sections are separated by spacing alone -- no rule between the headers. */
 .language-section {
 	margin-bottom: var(--space-5);
 	text-align: left;
@@ -339,7 +327,6 @@ h3 {
 	padding: 0;
 }
 
-/* Dividers between songs only -- never directly under the language header. */
 .song-list li + li {
 	border-top: 1px solid var(--color-border);
 }
@@ -380,8 +367,6 @@ h3 {
 	color: var(--color-accent-dark);
 }
 
-/* Picking a song is an action, but it reads as a plain link beside the
-   breadcrumb rather than as a button. */
 #random-song-btn {
 	font: inherit;
 	background: none;
@@ -405,9 +390,7 @@ h3 {
 	font-size: 1.05rem;
 	line-height: 1.8;
 	margin: var(--space-5) 0;
-	/* Keep the line breaks and blank lines stored in the lyrics. */
 	white-space: pre-wrap;
-	/* Lyrics are short lines; don't let them stretch across a wide screen. */
 	max-width: 36rem;
 }
 
@@ -426,7 +409,6 @@ h3 {
 	font-weight: 600;
 }
 
-/* Matched as `a#id` so these tie with `#calendar a` above and win on order. */
 a#calendar-subscribe,
 a#calendar-download {
 	font-weight: 400;
@@ -461,14 +443,9 @@ a#calendar-download {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	/* The row gap only matters once the links wrap; the column gap is the
-	   space after the hyphen separator, so it stays tight. */
 	gap: var(--space-2) var(--space-1);
 }
 
-/* A hyphen between the footer links, spaced like the surrounding words. The
-   second `content` blanks out the alt text so screen readers don't announce
-   it; the first is the fallback for browsers without that syntax. */
 #site-footer nav li:not(:last-child)::after {
 	content: "-";
 	content: "-" / "";
@@ -490,9 +467,6 @@ a#calendar-download {
 }
 
 /* ------------------------------------------------------------- noscript --- */
-
-/* Only ever rendered when scripting is unavailable, in place of the content
-   that would have been built by src/js. */
 .noscript-notice {
 	max-width: 36rem;
 	margin: var(--space-5) auto;
@@ -507,8 +481,6 @@ a#calendar-download {
 	color: var(--color-accent-dark);
 	font-weight: 600;
 }
-
-/* ------------------------------------------------------------ a11y prefs --- */
 
 @media (prefers-reduced-motion: reduce) {
 	*,

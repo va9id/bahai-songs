@@ -1,13 +1,3 @@
-// Fails when a song title can't be turned into a working song URL.
-//
-// Song URLs look like /song/?title=<derived title>, where the derived title
-// comes from urlTitle() in assets/js/data.js. This imports that exact function
-// rather than reimplementing the rules, so the check can never drift from what
-// the site actually does.
-//
-// Run locally with:  node scripts/validate-song-titles.mjs
-// Or against a copy: node scripts/validate-song-titles.mjs path/to/songs.json
-
 import { readFileSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -21,7 +11,10 @@ const songsPath = process.argv[2]
 
 const data = JSON.parse(readFileSync(songsPath, "utf8"));
 const songs = data.music.flatMap((group) =>
-	group.songs.map((song) => ({ title: song.title, language: group.language })),
+	group.songs.map((song) => ({
+		title: song.title,
+		language: group.language,
+	})),
 );
 
 const problems = [];
@@ -62,7 +55,7 @@ for (const { title, language } of songs) {
 	}
 	seen.set(derived, { title, language });
 
-	// Backstop: the derived title must actually find this song again.
+	// derived title must actually find this song again.
 	const found = findSong(data, derived);
 	if (!found || found.song.title !== title) {
 		problems.push(
@@ -72,8 +65,7 @@ for (const { title, language } of songs) {
 	}
 }
 
-const label =
-	process.argv[2] || relative(root, songsPath).replace(/\\/g, "/");
+const label = process.argv[2] || relative(root, songsPath).replace(/\\/g, "/");
 console.log(`Checked ${songs.length} song titles in ${label}.`);
 
 if (problems.length > 0) {
@@ -88,5 +80,3 @@ if (problems.length > 0) {
 	);
 	process.exit(1);
 }
-
-console.log("Every title derives a unique, resolvable song URL.");

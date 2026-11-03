@@ -1,14 +1,12 @@
 import { loadSongs, songUrl } from "./data.js";
 
+const searchContainer = document.getElementById("site-search");
 const searchInput = document.getElementById("song-search");
 const searchResults = document.getElementById("search-results");
+const searchToggle = document.getElementById("search-toggle");
 
 let songsData = null;
 let debounceTimer = null;
-
-loadSongs()
-	.then((data) => (songsData = data))
-	.catch((error) => console.error("Error loading songs data:", error));
 
 const WHITESPACE = /\s/;
 const COMBINING_MARKS = /[̀-ͯ]/g;
@@ -176,33 +174,70 @@ function performSearch() {
 	searchResults.hidden = false;
 }
 
-searchInput.addEventListener("input", function () {
-	clearTimeout(debounceTimer);
-	debounceTimer = setTimeout(performSearch, 300);
-});
+function setCollapsed(collapse) {
+	if (!searchToggle) {
+		return;
+	}
 
-searchInput.addEventListener("focus", function () {
-	if (searchInput.value.trim() !== "") {
+	searchContainer.toggleAttribute("data-collapsed", collapse);
+	searchToggle.setAttribute("aria-expanded", String(!collapse));
+}
+
+function closeSearch() {
+	searchResults.hidden = true;
+	setCollapsed(true);
+}
+
+// The about and calendar pages have no search box and do not load this module.
+if (searchInput) {
+	loadSongs()
+		.then((data) => (songsData = data))
+		.catch((error) => console.error("Error loading songs data:", error));
+
+	setCollapsed(true);
+
+	searchInput.addEventListener("input", function () {
+		clearTimeout(debounceTimer);
+		debounceTimer = setTimeout(performSearch, 300);
+	});
+
+	searchInput.addEventListener("focus", function () {
+		if (searchInput.value.trim() !== "") {
+			performSearch();
+		}
+	});
+
+	searchInput.form.addEventListener("submit", function (event) {
+		event.preventDefault();
 		performSearch();
-	}
-});
+	});
 
-searchInput.form.addEventListener("submit", function (event) {
-	event.preventDefault();
-	performSearch();
-});
+	if (searchToggle) {
+		searchToggle.addEventListener("click", function () {
+			const opening = searchContainer.hasAttribute("data-collapsed");
+			setCollapsed(!opening);
 
-document.addEventListener("click", function (event) {
-	if (
-		!searchInput.contains(event.target) &&
-		!searchResults.contains(event.target)
-	) {
-		searchResults.hidden = true;
+			if (opening) {
+				searchInput.focus();
+			} else {
+				searchResults.hidden = true;
+			}
+		});
 	}
-});
 
-document.addEventListener("keydown", function (event) {
-	if (event.key === "Escape") {
-		searchResults.hidden = true;
-	}
-});
+	document.addEventListener("click", function (event) {
+		if (
+			!searchInput.contains(event.target) &&
+			!searchResults.contains(event.target) &&
+			!(searchToggle && searchToggle.contains(event.target))
+		) {
+			closeSearch();
+		}
+	});
+
+	document.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") {
+			closeSearch();
+		}
+	});
+}

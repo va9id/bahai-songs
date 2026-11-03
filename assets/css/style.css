@@ -185,6 +185,44 @@ h3 {
 	}
 }
 
+/* Song pages ship a toggle so the sticky header stays one row while reading
+   lyrics; pages without the button keep the search box always open. */
+#search-toggle {
+	padding: var(--space-2);
+	border: none;
+	border-radius: var(--radius);
+	background-color: transparent;
+	color: var(--color-on-accent);
+	line-height: 0;
+	cursor: pointer;
+}
+
+#search-toggle:hover {
+	background-color: var(--color-accent-dark);
+}
+
+#site-header:has(#search-toggle) {
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* The box is full width, so it wraps onto its own row once opened. */
+#site-search[data-collapsed] {
+	display: none;
+}
+
+@media (min-width: 40em) {
+	#search-toggle {
+		display: none;
+	}
+
+	#site-search[data-collapsed] {
+		display: block;
+	}
+}
+
 #site-search label {
 	position: absolute;
 	width: 1px;

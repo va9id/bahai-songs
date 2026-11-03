@@ -1,9 +1,6 @@
 :root {
 	--color-accent: #8c2f52;
 	--color-accent-dark: #5f1f38;
-
-	/* Gold is for small decorative accents only — the star mark, the list
-	   markers, the nav underline — never for text. */
 	--color-gold: #a9761a;
 
 	--color-text: #302a24;
@@ -19,6 +16,7 @@
 
 	/* Behind search matches inside lyric previews. */
 	--color-highlight: #f0dca8;
+	--home-logo: url("/assets/imgs/logo_light.png");
 
 	--font-body:
 		system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
@@ -166,28 +164,6 @@ h3 {
 	gap: var(--space-3) var(--space-4);
 }
 
-/* Star mark and wordmark; doubles as the link home. */
-.site-brand {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--space-2);
-	color: var(--color-accent-dark);
-	font-family: var(--font-reading);
-	font-weight: 600;
-	text-decoration: none;
-	white-space: nowrap;
-}
-
-.site-brand svg {
-	color: var(--color-gold);
-	flex-shrink: 0;
-	transition: color 0.2s ease-in-out;
-}
-
-.site-brand:hover svg {
-	color: var(--color-accent-dark);
-}
-
 #site-nav ul {
 	list-style: none;
 	margin: 0;
@@ -270,6 +246,8 @@ h3 {
 	}
 }
 
+/* Read aloud, measured by search engines, never drawn. */
+.visually-hidden,
 #site-search label {
 	position: absolute;
 	width: 1px;
@@ -361,9 +339,11 @@ h3 {
 	text-align: center;
 }
 
-#home-description {
-	max-width: 48rem;
-	margin: 0 auto var(--space-5);
+#home-title {
+	width: min(100%, 22rem);
+	aspect-ratio: 800 / 514;
+	margin: var(--space-4) auto var(--space-5);
+	background: center / contain no-repeat var(--home-logo);
 }
 
 /* ------------------------------------------------------------ song list --- */
@@ -602,18 +582,11 @@ a#calendar-download {
 	font-weight: 600;
 }
 
-/* Evening reading. The accent pair swaps roles here: --color-accent-dark
-   is the *lighter* of the two, since it carries headings and body links.
-
-   The palette follows the system preference until the header toggle pins a
-   choice on <html data-theme>. That needs the same values in two places,
-   since a media query and a plain selector cannot share one block: keep the
-   block below and :root[data-theme="dark"] in sync. */
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme="light"]) {
-		--color-accent: #bd9465;
-		--color-accent-dark: #e2bb8c;
-		--color-gold: #ecd05a;
+		--color-accent: #fcb988;
+		--color-accent-dark: #85c7ea;
+		--color-gold: var(--color-accent);
 
 		--color-text: #e9e0d2;
 		--color-muted: #a99c89;
@@ -623,18 +596,19 @@ a#calendar-download {
 		--color-tint: #2e2527;
 		--color-highlight: #4d3c1c;
 
+		--home-logo: url("/assets/imgs/logo_dark.png");
+
 		--shadow:
-			0 1px 2px rgba(0, 0, 0, 0.4),
-			0 12px 28px -16px rgba(0, 0, 0, 0.7);
+			0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 28px -16px rgba(0, 0, 0, 0.7);
 
 		color-scheme: dark;
 	}
 }
 
 :root[data-theme="dark"] {
-	--color-accent: #bd9465;
-	--color-accent-dark: #e2bb8c;
-	--color-gold: #ecd05a;
+	--color-accent: #fcb988;
+	--color-accent-dark: #85c7ea;
+	--color-gold: var(--color-accent);
 
 	--color-text: #e9e0d2;
 	--color-muted: #a99c89;
@@ -644,9 +618,10 @@ a#calendar-download {
 	--color-tint: #2e2527;
 	--color-highlight: #4d3c1c;
 
+	--home-logo: url("/assets/imgs/logo_dark.png");
+
 	--shadow:
-		0 1px 2px rgba(0, 0, 0, 0.4),
-		0 12px 28px -16px rgba(0, 0, 0, 0.7);
+		0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 28px -16px rgba(0, 0, 0, 0.7);
 
 	color-scheme: dark;
 }

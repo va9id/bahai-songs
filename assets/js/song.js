@@ -13,9 +13,27 @@ const audioElement = document.getElementById("song-audio");
 const backLink = document.getElementById("back-to-songs");
 const randomSongBtn = document.getElementById("random-song-btn");
 
+function renderLyrics(lyrics) {
+	lyricsElement.replaceChildren();
+
+	if (!lyrics) {
+		lyricsElement.textContent = "No lyrics available.";
+		return;
+	}
+
+	// A blank line separates verses, and each one becomes its own block so
+	// the page reads like a song sheet instead of a single run of text.
+	lyrics.split(/\n\s*\n/).forEach(function (verse) {
+		const stanza = document.createElement("p");
+		stanza.className = "stanza";
+		stanza.textContent = verse.trim();
+		lyricsElement.append(stanza);
+	});
+}
+
 function showNotFound() {
 	titleElement.textContent = "Song not found";
-	lyricsElement.textContent = "";
+	lyricsElement.replaceChildren();
 	authorElement.textContent = "";
 	audioElement.hidden = true;
 	document.title = "Song not found";
@@ -39,7 +57,7 @@ async function renderSong(titleFromUrl) {
 
 	titleElement.textContent = song.title;
 
-	lyricsElement.textContent = song.lyrics || "No lyrics available.";
+	renderLyrics(song.lyrics);
 
 	if (language === "Other") {
 		lyricsElement.removeAttribute("lang");

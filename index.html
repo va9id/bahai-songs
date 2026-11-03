@@ -29,13 +29,28 @@
 		/>
 		<link rel="manifest" href="/assets/icons/site.webmanifest" />
 		<link rel="stylesheet" href="/assets/css/style.css" />
+		<meta name="theme-color" content="#faf5ec" />
+		<script>
+			// Applies a pinned theme before the first paint, so the page never
+			// flashes the other one while loading.
+			try {
+				const theme = localStorage.getItem("theme");
+				if (theme) {
+					document.documentElement.dataset.theme = theme;
+				}
+			} catch (error) {
+				/* Storage can be blocked; the system preference still applies. */
+			}
+		</script>
 		<noscript>
 			<style>
-				#site-search {
+				#site-search,
+				#theme-toggle {
 					display: none;
 				}
 			</style>
 		</noscript>
+		<script type="module" src="/assets/js/theme.js"></script>
 		<script type="module" src="/assets/js/search.js"></script>
 		<script type="module" src="/assets/js/home.js"></script>
 
@@ -54,14 +69,68 @@
 	</head>
 	<body>
 		<header id="site-header">
+			<a class="site-brand" href="/" aria-current="page">
+				<svg
+					viewBox="0 0 24 24"
+					width="22"
+					height="22"
+					fill="currentColor"
+					aria-hidden="true"
+				>
+					<path d="M12.00 1.00L 13.88 6.83 19.07 3.57 16.76 9.25 22.83 10.09 17.42 12.96 21.53 17.50 15.54 16.21 15.76 22.34 12.00 17.50 8.24 22.34 8.46 16.21 2.47 17.50 6.58 12.96 1.17 10.09 7.24 9.25 4.93 3.57 10.12 6.83Z" />
+				</svg>
+				Bahá'í Songs
+			</a>
 			<nav id="site-nav" aria-label="Main">
 				<ul>
-					<li><a href="/" aria-current="page">Home</a></li>
 					<li>
 						<a href="/calendar.html">Calendar</a>
 					</li>
 				</ul>
 			</nav>
+			<button
+				id="theme-toggle"
+				type="button"
+				aria-label="Switch to dark theme"
+			>
+				<svg
+					id="theme-icon-moon"
+					viewBox="0 0 24 24"
+					width="20"
+					height="20"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M20.5 13.3A8.5 8.5 0 0 1 10.7 3.5a7.5 7.5 0 1 0 9.8 9.8Z" />
+				</svg>
+				<svg
+					id="theme-icon-sun"
+					viewBox="0 0 24 24"
+					width="20"
+					height="20"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					hidden
+				>
+					<circle cx="12" cy="12" r="4" />
+					<line x1="12" y1="2" x2="12" y2="4" />
+					<line x1="12" y1="20" x2="12" y2="22" />
+					<line x1="2" y1="12" x2="4" y2="12" />
+					<line x1="20" y1="12" x2="22" y2="12" />
+					<line x1="4.9" y1="4.9" x2="6.3" y2="6.3" />
+					<line x1="17.7" y1="17.7" x2="19.1" y2="19.1" />
+					<line x1="4.9" y1="19.1" x2="6.3" y2="17.7" />
+					<line x1="17.7" y1="6.3" x2="19.1" y2="4.9" />
+				</svg>
+			</button>
 
 			<search id="site-search">
 				<form role="search" autocomplete="off">
